@@ -1,0 +1,24 @@
+<div class="blog-title">
+  <%= title %>
+</div>
+
+<%= if opts[:edit_mode] > 1 
+  dc_link_for_create(controller: 'cmsedit', table: 'dc_blog', title: 'dc_blog.new_entry' )
+    end %>
+
+<% if blog %>
+  <div class="blog-date"><%= dc_pretty_date(blog.created_at) %></div>
+  <div class="blog-subject"><%= blog.subject %></div>
+  <div style="clear:both;"></div>
+
+  <div class="blog-body"><%= blog.body%></div>
+
+  <div class="blog-replies">
+    <%= render partial: 'dc_reply/reply', formats: [:html], 
+               locals: { replies: replies, parent_id: blog.id } %>
+  </div>
+
+  <iframe id="iframe_edit" name="iframe_edit" scrolling="no"></iframe>
+<% else %>
+  <br><br><br>This blog has no posts. Yet ;-)
+<% end %>

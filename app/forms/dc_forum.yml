@@ -1,0 +1,59 @@
+## YAML Template for Polls
+---
+table: dc_forum
+
+index:
+  filter: name, description
+  actions: standard
+
+result_set:
+  actions: standard
+
+  columns:
+    1:  
+      name: name
+    2:  
+      name: site_id
+      eval: dc_name4_id,dc_site,name
+    3: 
+      name: order
+    4: 
+      name: active
+      eval: dc_icon4_boolean
+
+edit_title: name
+
+form:
+  actions: standard
+
+  fields:
+    10:
+      name: name
+      type: text_field
+      html:
+        size: 50
+
+    20:
+      name: description
+      type: text_area
+      html:
+        size: 80x10
+
+    30:
+      name: site_id
+      type: select
+      eval: DcSite.choices4_site
+      html:
+        include_blank: true
+    40:
+      name: order
+      type: text_field
+      html:
+        size: 3
+       
+    50:
+      name: dc_policy_rules
+      type: embedded
+      formname: dc_policy_rule
+      html:
+        height: 400  

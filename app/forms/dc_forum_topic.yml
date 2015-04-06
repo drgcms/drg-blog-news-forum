@@ -1,0 +1,30 @@
+## YAML Template for Polls
+---
+table: dc_forum_topic
+
+
+form:
+  height: 600
+  labels_pos: top
+  actions: 
+    1: save
+
+  fields:
+    10:
+      name: subject
+      type: text_field
+      html:
+        size: 80
+
+    20:
+      name: body
+      type: html_field
+      options: "height: 420, toolbar: 'basic'" 
+      
+    100:
+      name: dc_forum_id
+      type: hidden_field
+    110:
+      name: created_by_name
+      type: hidden_field
+

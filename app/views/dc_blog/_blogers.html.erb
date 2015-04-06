@@ -1,0 +1,12 @@
+<% if session[:edit_mode] > 1 %>
+  <%= dc_link_for_create(controller: 'cmsedit', table: 'dc_blog', title: 'dc_blog.new_entry' ) %>
+<% end %>
+<div class="blog-title">
+  <h1><%= t('dc_blog.blogers') %></h1>
+</div>
+
+<% for bloger in blogers %>
+  <div class="blog-entry">
+     <%= link_to( bloger, { path: 'blog', name: bloger} )%>
+  </div>
+<% end %>

@@ -1,0 +1,13 @@
+<div class="blog-title">
+  <h1><%= params[:name] %>, <%= t('dc_blog.my_blog') %></h1>
+</div>
+<% for entry in entries %>
+
+  <div class="blog-entry">
+
+      <%= link_to( entry.subject, 
+          { path: 'blog', name: params[:name], link: entry.link } )%>
+
+    <div class="blog-date"><h3><%= dc_pretty_date(entry.created_at) %></h3></div>
+  </div>
+<% end %>

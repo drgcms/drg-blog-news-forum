@@ -1,0 +1,167 @@
+/*
+#--
+# Copyright (c) 2014+ Damjan Rems
+#
+# Permission is hereby granted, free of charge, to any person obtaining
+# a copy of this software and associated documentation files (the
+# "Software"), to deal in the Software without restriction, including
+# without limitation the rights to use, copy, modify, merge, publish,
+# distribute, sublicense, and/or sell copies of the Software, and to
+# permit persons to whom the Software is furnished to do so, subject to
+# the following conditions:
+#
+# The above copyright notice and this permission notice shall be
+# included in all copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+# EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+# MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+# NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+# LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+# OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+# WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+#++
+*/
+
+#dc-forum {
+  background-color: white;
+}
+
+#dc-forum hr {
+color: #ddd;
+border: none;
+height: 1px;
+}
+
+#dc-forum h1, #dc-forum h2 {
+  margin-bottom: 2px;
+  margin-top: 2px;
+}
+
+#dc-forum .forum-title {
+  background-color: #ddd;
+  border: 1px solid #d8d8d8;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px; 
+  padding: 4px;
+}
+
+#dc-forum .topic-odd, #dc-forum .topic-even {
+  padding: 4px;
+  border: 1px solid #ddd;
+  border-top: none;
+  font-size: 0.9em;
+}
+
+#dc-forum .topic-odd a, #dc-forum .topic-even a {
+  font-size: 1.5em;
+}
+
+#dc-forum .topic-odd{
+  background-color: #f8f8f8;
+}
+
+#dc-forum .topic-even{
+  background-color: #eee;
+}
+
+.forum-topics .topic {
+  padding: 4px;
+  background-color: #eee;
+  border: 1px solid #ddd;
+  border-top: none;
+}
+
+#dc-forum .reply-top-odd, #dc-forum .reply-top-even {
+  margin-top: 10px;
+  padding: 4px;
+  background: #eee;
+  border: 1px solid #ddd;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px; 
+}
+
+#dc-forum .reply-body-odd, #dc-forum .reply-body-even {
+  padding: 4px;
+  background: #f8f8f8;
+  border: 1px solid #ddd;
+  border-top: none;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px; 
+}
+
+#dc-forum .topic-top {
+  padding: 4px;
+  background: #eee;
+  border: 1px solid #ddd;
+  border-top: none;
+}
+
+#dc-forum .topic-body {
+  padding: 4px;
+  background: #f8f8f8;
+  border: 1px solid #ddd;
+  border-top: none;
+}
+
+.dc-forum-quote {
+  border-left: 2px solid #01b;
+  padding-left: 4px;
+  color: #01b;
+}
+
+#dc-forum-menu {
+  width: 100%; 
+  margin-bottom: 3px;
+  margin-top: 3px;
+}
+
+#dc-forum .pagination {
+}
+
+#dc-forum .pagination span {
+font-size: 1.6em;
+padding: 2px 0px 2px 6px;
+margin: 2px;
+font-weight: bold;
+border: 1px solid #eee;
+background: linear-gradient(#eee 5%, #fff 100%); 
+border-radius: 2px;
+}
+
+/******* dc_blog *******/
+
+.blog-subject {
+font-size: 1.4em;
+font-weight: bold;
+}
+.blog-date {
+font-size: 1em;  
+color: #aaa;  
+}
+.blog-body {
+}
+.blog-replies {
+}
+.reply-top-even {
+padding:5px;
+background-color: #fff;
+}
+.reply-top-odd {
+padding:5px;
+background-color: #eee;
+}
+.blog-entry {
+margin-top: 10px;
+}
+.blog-entry a {
+font-size: 1.6em;
+font-weight: bold;
+}
+
+.social-sites {
+margin-top: 30px;
+margin-bottom: 40px;
+padding-top: 5px;
+padding-bottom: 5px;
+}

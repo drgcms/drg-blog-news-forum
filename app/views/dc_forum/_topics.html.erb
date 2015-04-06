@@ -1,0 +1,44 @@
+<div class="forum-topics">
+  <div id="back-list"><%= link_to( t('dc_forum.forums_list'), { path: params[:path] }) %> </div>
+  
+  <table id="dc-forum-menu"><tr>
+    <td class="dc-link dc-animate" style="white-space: nowrap;">
+      <%= link_to( t('dc_forum.new_topic'), 
+          {controller: 'cmsedit', table: 'dc_forum_topic', formname: 'dc_forum_topic', 
+          action: 'new', forum: forum._id}, target: 'iframe_edit') %>
+    </td>
+    <td style="text-align: right; width: 100%;"><%= paginate topics %></td>    
+  </tr></table>
+  
+  <div class="forum-title">
+    <h1><%= forum.name %></h1>
+  </div>
+  
+  <% for topic in topics %>
+    <div class="topic-<%= cycle("odd", "even") %>">
+      <%= link_to(topic.subject, { path: params[:path], forum: params[:forum], topic: topic._id } ) %><hr>
+      <b><%= t('dc_forum.created_by') %>:</b> <%= topic.created_by_name %> 
+      <%= dc_pretty_date(topic.created_at) %> &nbsp;|&nbsp;
+
+      <b><%= t('dc_forum.replies') %>:</b>
+      <%= topic.replies %>
+      
+      <% if topic.updated_at != topic.created_at %>
+         &nbsp;|&nbsp; <b><%= t('dc_forum.last') %>:</b>
+        <%= topic.updated_by_name %>
+        <%= dc_pretty_date(topic.updated_at) %>
+      <% end %>
+    </div>
+  <% end %>
+
+  <table id="dc-forum-menu"><tr>
+    <td class="dc-link dc-animate" style="white-space: nowrap;">
+      <%= link_to( t('dc_forum.new_topic'), 
+          {controller: 'cmsedit', table: 'dc_forum_topic', formname: 'dc_forum_topic', 
+          action: 'new', forum: forum._id}, target: 'iframe_edit') %>
+    </td>
+    <td style="text-align: right; width: 100%;"><%= paginate topics %></td>    
+  </tr></table>
+</div>
+
+<iframe id="iframe_edit" name="iframe_edit" scrolling="no"></iframe>

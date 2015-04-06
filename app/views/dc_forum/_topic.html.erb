@@ -1,0 +1,51 @@
+<div class="forum-topics">
+  <div id="back-list">
+    <%= link_to( t('dc_forum.forums_list'), {path: params[:path]} ) %> / 
+    <%= link_to( forum.name, {path: params[:path], forum: forum.id} ) %> 
+  </div>
+  <table id="dc-forum-menu"><tr>
+    <td class="dc-link dc-animate" style="white-space: nowrap;">
+    <%= link_to( t('dc_forum.new_reply'), { controller: 'cmsedit', table: 'dc_forum_topic;dc_reply', 
+                 formname: 'dc_reply', action: 'new', ids: topic.id, forum: forum._id}, 
+                 target: 'iframe_edit') %>
+    </td>
+    <td style="text-align: right; width: 100%;"><%= paginate replies %></td>    
+  </tr></table>
+  
+  <div class="forum-title">
+  <h1><%= forum.name %></h1></div>
+
+  <div class="topic-top"><h2><%= topic.subject %></h2>
+    <%= t('dc_forum.created_by') %>: <%= topic.created_by_name %> <%= dc_pretty_date(topic.created_at) %>
+  </div>
+  
+  <div class="topic-body"><%= topic.body.html_safe %></div>
+  
+  <% for reply in replies %>
+    <% oddeven = cycle("odd", "even") %>
+
+    <div class="reply-top-<%= oddeven %>">
+      <span style="float: right; top-margin: 5px;">
+        <%= link_to( t('dc_forum.new_reply'), { controller: 'cmsedit', table: 'dc_forum_topic;dc_reply', 
+                     formname: 'dc_reply', action: 'new', ids: topic.id, 
+                     forum: forum._id, reply_to: reply.id}, target: 'iframe_edit') %>
+      </span>
+      <b><%= reply.subject %></b><br>
+      <%= t('dc_forum.replied_by') %>: 
+      <%= reply.created_by_name %>, 
+      <%= dc_pretty_date(reply.created_at) %>&nbsp;&nbsp;
+    </div>
+    <div class="reply-body-<%= oddeven %>"><%= reply.body.html_safe %></div>
+  <% end %>
+    
+  <table id="dc-forum-menu"><tr>
+    <td class="dc-link dc-animate" style="white-space: nowrap;">
+    <%= link_to( t('dc_forum.new_reply'), { controller: 'cmsedit', table: 'dc_forum_topic;dc_reply', 
+                 formname: 'dc_reply', action: 'new', ids: topic.id, forum: forum._id}, 
+                 target: 'iframe_edit') %>
+    </td>
+    <td style="text-align: right; width: 100%;"><%= paginate replies %></td>    
+  </tr></table>
+</div>
+
+<iframe id="iframe_edit" name="iframe_edit" scrolling="no"></iframe>

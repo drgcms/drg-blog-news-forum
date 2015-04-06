@@ -1,0 +1,33 @@
+<%= if session[:edit_mode] > 1 
+  dc_link_for_create(controller: 'cmsedit', table: 'dc_forum', title: 'dc_forum.add_new_forum' )
+    end %>
+
+<div class="forum-topics">
+  <div class="forum-title">
+    <h1><%= t 'dc_forum.forums_list' %></h1>
+  </div>
+  
+  <% for forum in forums %>
+    <div class="topic-<%= cycle("odd", "even") %>">
+      <%= if session[:edit_mode] > 1 then
+          dc_link_for_edit(controller: 'cmsedit', table: 'dc_forum', id: forum._id, title: 'dc_forum.edit_forum' ); end %>
+      <div class="name">  
+        <%= link_to(forum.name,{ path: params[:path], forum: forum.id} ) %>
+      </div>
+      <div class='description'>
+        <%= forum.description %><hr>
+         <b><%= t('dc_forum.topics') %>:</b>
+         <%= forum.topics %> &nbsp;|&nbsp; 
+
+         <b><%= t('dc_forum.replies') %>:</b>
+         <%= forum.replies %> &nbsp;|&nbsp; 
+
+         <b><%= t('dc_forum.last') %>:</b>
+         <%= forum.updated_by_name %>
+         <%= dc_pretty_date(forum.updated_at) %>
+      
+      </div>
+    </div>
+  <% end %>
+</div>  
+

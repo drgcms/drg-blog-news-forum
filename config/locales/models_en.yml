@@ -1,0 +1,118 @@
+#--
+# Copyright (c) 2014+ Damjan Rems
+#
+# Permission is hereby granted, free of charge, to any person obtaining
+# a copy of this software and associated documentation files (the
+# "Software"), to deal in the Software without restriction, including
+# without limitation the rights to use, copy, modify, merge, publish,
+# distribute, sublicense, and/or sell copies of the Software, and to
+# permit persons to whom the Software is furnished to do so, subject to
+# the following conditions:
+#
+# The above copyright notice and this permission notice shall be
+# included in all copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+# EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+# MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+# NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+# LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+# OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+# WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+#++
+
+
+en:
+  helpers:
+# label, komentarji na obrazcih #############################################
+    label:
+      dc_forum:
+        tabletitle: Forums
+
+        name: Forum name
+        description: Description
+        site_id: Site
+        dc_forum_policy_rules: Permissions
+        order: Order
+        topics: No of topics
+        active: Active
+        
+      dc_forum_policy_rule:
+        tabletitle: Forum access rules
+
+        active: Active
+        updated_by: Updated by
+        dc_policy_role_id: User role
+        permission: Permission
+        
+      dc_forum_topic:
+        tabletitle: Topics
+
+        subject: Subject
+        body: Body
+        created_at: Created at
+        dc_user_id: User
+        dc_forum_id: Forum
+        active: Active  
+        replays: Replays
+        views: Views
+   
+      dc_reply:
+        tabletitle: Replies
+
+        subject: Subject
+        body: Body
+        created_at: Created at
+        dc_user_id: User
+        dc_forum_topic_id: Topic
+        active: Active        
+   
+      dc_blog:
+        tabletitle: Blogs
+
+        subject: Subject
+        body: Body
+        created_at: Created at
+        created_by_id: Creator
+        created_by_name: Creator
+        link: Link 
+        active: Active        
+
+    help:
+      dc_forum:
+        name: Forum name (short description)
+        description: Long description of what is forum about
+        site_id: Site that forums belongs to
+        dc_forum_policy_rules: Access permissions for the forum
+        active: active
+        
+      dc_forum_policy_rule:
+        active: Rule is active
+        updated_by: Last updated by
+        dc_policy_role_id: User role access defined by this rule
+        permission: Access permission
+        
+      dc_forum_topic:
+        subject: Subject, short description of topic
+        body: Topics body
+        created_at: Creation time
+        dc_user_id: User who created topic
+        dc_forum_id: Forum that topic belongs to
+        active: Topic is active
+   
+      dc_reply:
+        subject: Subject, short description of reply
+        body: Replays body
+        created_at: Created at
+        dc_user_id: User
+        active: Reply is active
+        
+      dc_blog:
+        subject: Subject of the blog
+        body: Body
+        created_at: Time of creation
+        created_by: ID of the creator
+        created_by_name: Name of the creator
+        link: Link to blog entry
+        active: Active        
+      
