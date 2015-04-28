@@ -51,10 +51,11 @@ en:
         subject: Subject
         body: Body
         created_at: Created at
+        created_by_name: Name
         dc_user_id: User
         dc_forum_id: Forum
         active: Active  
-        replays: Replays
+        replies: No of replies
         views: Views
    
       dc_reply:
@@ -62,9 +63,9 @@ en:
 
         subject: Subject
         body: Body
+        created_by_name: Name
+        created_by: Created by
         created_at: Created at
-        dc_user_id: User
-        dc_forum_topic_id: Topic
         active: Active        
    
       dc_blog:
@@ -72,6 +73,19 @@ en:
 
         subject: Subject
         body: Body
+        replies: Replies
+        created_at: Created at
+        created_by_id: Creator
+        created_by_name: Creator
+        link: Link 
+        active: Active        
+
+      dc_news:
+        tabletitle: News
+
+        subject: Subject
+        body: Body
+        replies: Replies
         created_at: Created at
         created_by_id: Creator
         created_by_name: Creator
@@ -102,13 +116,23 @@ en:
    
       dc_reply:
         subject: Subject, short description of reply
-        body: Replays body
+        body: Body text of reply
         created_at: Created at
+        created_by_name: Reply author's name
         dc_user_id: User
         active: Reply is active
         
       dc_blog:
         subject: Subject of the blog
+        body: Body
+        created_at: Time of creation
+        created_by: ID of the creator
+        created_by_name: Name of the creator
+        link: Link to blog entry
+        active: Active        
+        
+      dc_news:
+        subject: Subject of the news
         body: Body
         created_at: Time of creation
         created_by: ID of the creator

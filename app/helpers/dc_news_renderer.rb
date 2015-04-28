@@ -28,44 +28,33 @@ class DcNewsRenderer < DcRenderer
 include DcApplicationHelper
 
 ########################################################################
-# Show one blog entry
+# Show one news entry
 ########################################################################
 def show_entry
-#  blog = @parent.params[:blog_id] ? DcNews.find(@parent.params[:blog_id]) : DcNews.last
-  entry = DcNews.find_by(created_by_name: @parent.params[:name], link: @parent.params[:link])
-  return t('dc_blog.entry_not_found') if entry.nil?
+  entry = DcNews.find_by(link: @parent.params[:link])
+  return t('dc_news.entry_not_found') if entry.nil?
   
   replies = entry.dc_replies.where(active: true).order(created_at: 1).
-            page(@parent.params[:page]).per(5)
+            page(@parent.params[:page]).per(10)          
   @parent.render partial: 'dc_news/entry', formats: [:html], 
                  locals: { entry: entry, replies: replies, opts: @opts }
 end
 
 ########################################################################
-# List all blogs from one bloger
+# List all news
 ########################################################################
 def list_all
   entries = DcNews.only(:created_by_name, :link, :subject, :created_at)
-                  .where(created_by_name: @parent.params[:name]).order_by(created_at: -1)
+                  .where(active: true).order_by(created_at: -1)
                   .page(@parent.params[:page]).per(10)
   @parent.render partial: 'dc_news/entries', formats: [:html], locals: { entries: entries } 
-end
-
-########################################################################
-# List all blogers
-########################################################################
-def list_blogers
-  blogers = DcNews.all.distinct(:created_by_name)
-  @parent.render partial: 'dc_news/blogers', formats: [:html], locals: { blogers: blogers } 
 end
 
 ########################################################################
 # Default method will dispatch to proper method.
 ########################################################################
 def default
-  if @parent.params[:name].nil?
-    list_blogers
-  elsif @parent.params[:link].nil? or @parent.params[:link] == 'all'
+  if @parent.params[:link].nil?
     list_all
   else
     show_entry

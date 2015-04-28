@@ -54,7 +54,7 @@ sl:
         dc_user_id: Ustvaril
         dc_forum_id: Forum
         active: Aktiven  
-        replays: Odgovorov
+        replies: Odgovorov
         views: Vpogledov
    
       dc_reply:
@@ -63,8 +63,31 @@ sl:
         subject: Zadeva
         body: Vsebina
         created_at: Ustvarjeno
-        dc_user_id: Ustvaril
-        dc_forum_topic_id: Tema
+        created_by_name: Ustvaril
+        active: Aktiven  
+   
+      dc_blog:
+        tabletitle: Blogi
+
+        subject: Zadeva
+        body: Vsebina
+        replies: Odgovori
+        created_at: Ustvarjeno
+        created_by_id: Ustvaril
+        created_by_name: Ustvaril
+        link: Povezava 
+        active: Aktiven        
+
+      dc_news:
+        tabletitle: Novice
+
+        subject: Zadeva
+        body: Vsebina
+        replies: Odgovori
+        created_at: Ustvarjeno
+        created_by_id: Ustvaril
+        created_by_name: Ustvaril
+        link: Povezava 
         active: Aktiven        
         
     help:
@@ -98,4 +121,21 @@ sl:
         dc_forum_topic_id: Tema
         active: Aktiven        
         
-      
+      dc_blog:
+        subject: Naslov bloga
+        body: Vsebina (tekst) bloga
+        created_at: Ustvarjeno
+        created_by: Ustvaril
+        created_by_name: Ustvaril ime
+        link: Povezava do bloga
+        active: Blog zapis je aktiven
+        
+      dc_news:
+        subject: Naslov novice
+        body: Vsebina (tekst) novice
+        created_at: Ustvarjeno
+        created_by: Ustvaril
+        created_by_name: Ustvaril ime
+        link: Povezava do novice
+        active: Novica je aktivna
+              

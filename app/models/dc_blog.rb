@@ -53,7 +53,7 @@ included do
 ########################################################################
 def do_before_save
   if self.link.size < 5
-    self.link = self.created_at.strftime('%Y-%m-%d-') + UnicodeUtils.downcase(self.subject)
+    self.link = UnicodeUtils.downcase(self.subject) + Time.now.strftime('-%Y-%m-%d')
   end
   if self.created_by_name.nil?
     self.created_by_name = DcUser.find(self.created_by).name

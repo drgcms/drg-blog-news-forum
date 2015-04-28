@@ -1,19 +1,11 @@
+
 table: dc_reply
-
-result_set:
-  actions: standard
-
-  columns:
-    1:  
-      name: created_by_name
-    2:  
-      name: subject
-    3:  
-      name: created_at
 
 form:
   height: 750
-  actions: standard
+  labels_pos: top
+  actions: 
+    1: save
 
   fields:
     10:

@@ -5,9 +5,10 @@
   <%= dc_link_for_edit(controller: 'cmsedit', table: 'dc_news', title: 'dc_news.edit_entry', id: entry.id ) %>
 <% end %>
 
-<div class="news-subject"><h1><%= entry.subject %></h1></div>
-<div class="news-date"><h3><%= t('dc_blog.author') + ' ' + dc_pretty_date(entry.created_at) %></h3></div>
-<div class="news-date"><h3><%= t('dc_blog.published') + ' ' + dc_pretty_date(entry.created_by_name) %></h3></div>
+<div class="news-subject"><h2><%= entry.subject %></h2></div>
+<div class="news-date"><h3>
+<%= t('dc_blog.author') + ' ' + entry.created_by_name + ', ' + dc_pretty_date(entry.created_at) %>
+  </h3></div><br>
 
 <div class="news-body"><%= entry.body.html_safe %></div>
 <div class="social-sites"><%=  social_sites %></div>

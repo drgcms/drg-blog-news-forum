@@ -37,13 +37,13 @@ def dc_new_record()
     @record.subject = "Re: #{replyto.subject}"
     @record.body = "<div class='dc-forum-quote'>#{replyto.body}</div><br>"
   end
+  @record.created_by_name = session[:user_name] if session[:user_name]
 end
 
 ######################################################################
 # Called before save. Reloads browser.
 ######################################################################
 def dc_before_save()
-  @record.created_by_name = session[:user_name]
   params[:return_to] = 'parent.reload'
 end
 

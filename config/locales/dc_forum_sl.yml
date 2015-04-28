@@ -36,6 +36,7 @@ sl:
     last: Zadnji
 
   dc_blog:
+    author: Avtor
     blogers: Seznam naših blogerjev
     published: Objava,
     new_entry: Nov vpis v blog
@@ -43,6 +44,14 @@ sl:
     entry_not_found: Vpis v blog ne obstaja
     my_blog: moj blog
     comments: Komentarji
+    
+  dc_news:
+    news: Novice
+    new_entry: Nova novica
+    edit_entry: Urejanje novice
+    entry_not_found: Novica ne obstaja
+    
+    
     
 
     

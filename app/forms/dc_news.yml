@@ -1,4 +1,4 @@
-table: dc_blog
+table: dc_news
 
 index:
   filter: subject, created_by_name

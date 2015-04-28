@@ -28,6 +28,8 @@ class DcNews
   field :subject,     type: String,  default: ''
   field :body,        type: String,  default: ''
   field :active,      type: Boolean, default: true
+  field :link,        type: String
+  
   field :valid_from,  type: Date
   field :valid_to,    type: Date
   field :categories,  type: Array
@@ -35,10 +37,23 @@ class DcNews
   field :created_by,  type: BSON::ObjectId
   field :created_by_name, type: String
 
-  embeds_many :replies
+  embeds_many :dc_replies, as: :replies
 
   validates_length_of :subject, minimum: 4  
   validates_length_of :body,    minimum: 10
   
+  before_save :do_before_save  
   
+########################################################################
+# Update link when left blank.
+########################################################################
+def do_before_save
+  if self.link.size < 5
+    self.link = UnicodeUtils.downcase(self.subject) + Time.now.strftime('-%Y-%m-%d')
+  end
+  if self.created_by_name.nil?
+    self.created_by_name = DcUser.find(self.created_by).name
+  end
+end
+
 end

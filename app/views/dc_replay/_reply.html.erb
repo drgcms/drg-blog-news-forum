@@ -4,7 +4,7 @@
   <div class="reply-top-<%= oddeven %>">
     <span style="float: right; top-margin: 5px;">
       <%= link_to( t('dc_forum.new_reply'), { controller: 'cmsedit', table: "#{parent_document};dc_reply", 
-                   formname: 'dc_reply', action: 'new', ids: parent_id, 
+                   formname: 'reply', action: 'new', ids: parent_id, 
                    reply_to: reply.id}, target: 'iframe_edit') %>
     </span>
     <b><%= reply.subject %></b><br>
@@ -17,7 +17,7 @@
 <table id="dc-reply-menu"><tr>
   <td class="dc-link dc-animate" style="white-space: nowrap;">
   <%= link_to( t('dc_forum.new_reply'), { controller: 'cmsedit', table: "#{parent_document};dc_reply", 
-               formname: 'dc_reply', action: 'new', ids: parent_id }, 
+               formname: 'reply', action: 'new', ids: parent_id }, 
                target: 'iframe_edit') %>
   </td>
   <td style="text-align: right; width: 100%;"><%= paginate replies %></td>    
