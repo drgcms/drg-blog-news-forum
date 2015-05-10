@@ -16,9 +16,9 @@ Usage:
 
 2. Create related dc_design documents and use one of this lines for rendering html code.  
 ```irb
-div id="dc-blog"><%= dc_render(:dc_blog) %></div>
-div id="dc-news"><%= dc_render(:dc_news) %></div>
-div id="dc-forum"><%= dc_render(:dc_forum) %></div>
+<div id="dc-blog"><%= dc_render(:dc_blog) %></div>
+<div id="dc-news"><%= dc_render(:dc_news) %></div>
+<div id="dc-forum"><%= dc_render(:dc_forum) %></div>
 ```
 
 3. Add this line to routes.rb.
