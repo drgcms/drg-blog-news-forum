@@ -1,6 +1,6 @@
 # DrgBlogNewsForum
 
-DRG CMS DrgBlogNewsForum plugin implements basic funcionality for enabling blog, news or forum on DRG CMS enabled web site.
+DRG CMS DrgBlogNewsForum plugin implements code for blog, news or forum on DRG CMS enabled web site.
 
 Configuration
 ----------------
@@ -10,11 +10,22 @@ Add this line to your Gemfile:
   gem 'drg_blog_news_forum'
 ```  
 
-Usage: Add this line to design.
-div id="dc-blog"><%= dc_render(:dc_blog) %></div>
+Usage: 
 
-Optional configuration in Site document:
-```yaml
+1. Create dc_page documents with blog, news and forum links.
+
+2. Create related dc_design documents and use one of this lines for rendering html code.  
+```irb
+div id="dc-blog"><%= dc_render(:dc_blog) %></div>
+div id="dc-news"><%= dc_render(:dc_news) %></div>
+div id="dc-forum"><%= dc_render(:dc_forum) %></div>
+```
+
+3. Add this line to routes.rb.
+```ruby
+  get '/blog/:name/:link' => 'dc_main#page', :defaults => { path: 'blog' }
+  get '/blog/:name' => 'dc_main#page', :defaults => { path: 'blog', link: 'all' }
+  get '/news/:link' => 'dc_main#page', :defaults => { path: 'news' }
 ```
 
 Documentation
@@ -26,7 +37,7 @@ Please see the DRG CMS website for up-to-date documentation:
 License
 -------
 
-Copyright (c) 2012-2015 Damjan Rems
+Copyright (c) 2014-2015 Damjan Rems
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the

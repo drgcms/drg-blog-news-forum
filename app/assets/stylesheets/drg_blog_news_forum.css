@@ -105,9 +105,9 @@ height: 1px;
 }
 
 .dc-forum-quote {
-  border-left: 2px solid #01b;
+  border-left: 2px solid #666;
   padding-left: 4px;
-  color: #01b;
+  color: #666;
 }
 
 #dc-forum-menu {
@@ -130,14 +130,15 @@ border-radius: 2px;
 }
 
 /******* dc_blog *******/
-
 .blog-subject {
 font-size: 1.4em;
 font-weight: bold;
+margin-top: 20px;
 }
 .blog-date {
 font-size: 1em;  
 color: #aaa;  
+margin-bottom: 20px;
 }
 .blog-body {
 }
@@ -150,6 +151,11 @@ background-color: #fff;
 .reply-top-odd {
 padding:5px;
 background-color: #eee;
+}
+
+.reply-body-even p, .reply-body-odd p {  
+margin-top: 0em; 
+margin-bottom: 0em;
 }
 .blog-entry {
 margin-top: 10px;
