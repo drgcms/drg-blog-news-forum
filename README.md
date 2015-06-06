@@ -12,16 +12,16 @@ Add this line to your Gemfile:
 
 Usage: 
 
-1. Create dc_page documents with blog, news and forum links.
+Create dc_page documents with blog, news and forum links.
 
-2. Create related dc_design documents and use one of this lines for rendering html code.  
+Create related dc_design documents and use one of this lines for rendering html code.  
 ```irb
 <div id="dc-blog"><%= dc_render(:dc_blog) %></div>
 <div id="dc-news"><%= dc_render(:dc_news) %></div>
 <div id="dc-forum"><%= dc_render(:dc_forum) %></div>
 ```
 
-3. Add this line to routes.rb.
+Add this lines to routes.rb.
 ```ruby
   get '/blog/:name/:link' => 'dc_main#page', :defaults => { path: 'blog' }
   get '/blog/:name' => 'dc_main#page', :defaults => { path: 'blog', link: 'all' }

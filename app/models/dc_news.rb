@@ -49,7 +49,7 @@ class DcNews
 ########################################################################
 def do_before_save
   if self.link.size < 5
-    self.link = UnicodeUtils.downcase(self.subject) + Time.now.strftime('-%Y-%m-%d')
+    self.link = UnicodeUtils.downcase(self.subject).gsub(' ','-') + Time.now.strftime('-%Y-%m-%d')
   end
   if self.created_by_name.nil?
     self.created_by_name = DcUser.find(self.created_by).name
