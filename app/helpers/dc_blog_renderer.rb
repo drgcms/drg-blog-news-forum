@@ -36,7 +36,7 @@ def show_entry
   return t('dc_blog.entry_not_found') if entry.nil?
   
   replies = entry.dc_replies.where(active: true).order(created_at: 1).
-            page(@parent.params[:page]).per(5)
+            page(@parent.params[:page]).per(20)
   @parent.render partial: 'dc_blog/entry', formats: [:html], 
                  locals: { entry: entry, replies: replies, opts: @opts }
 end
