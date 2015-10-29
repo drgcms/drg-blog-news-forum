@@ -23,23 +23,21 @@
 menu:
   80_dc_forum_menu:
     caption: dc_forum.menu_caption
+    icon: cubes lg
     items:
       10: 
-        caption: helpers.label.dc_forum.tabletitle
-        controller: cmsedit
-        picture: forum.png
-        params:
-          table: dc_forum
-      20: 
         caption: helpers.label.dc_blog.tabletitle
         controller: cmsedit
-        picture: blog.png
-        params:
-          table: dc_blog
-      30: 
+        icon: comment-o lg
+        table: dc_blog
+      20: 
         caption: helpers.label.dc_news.tabletitle
         controller: cmsedit
-        picture: news.png
-        params:
-          table: dc_news
+        icon: info lg
+        table: dc_news
+      30: 
+        caption: helpers.label.dc_forum.tabletitle
+        controller: cmsedit
+        icon: server lg
+        table: dc_forum
                        
