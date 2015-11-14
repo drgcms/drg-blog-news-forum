@@ -65,7 +65,7 @@ end
 def last_blogs
   limit = @opts[:limit] || 3
   entries = DcBlog.only(:created_by_name, :link, :subject, :created_at)
-                  .where(active: true, :created_at.gt => 2.years.ago)
+                  .where(active: true, :created_at.gt => 2.months.ago)
                   .order_by(created_at: -1).limit(limit).to_a
   if entries.size > 0
     @parent.render partial: 'dc_blog/last_blogs', formats: [:html], locals: { entries: entries } 

@@ -1,3 +1,4 @@
+<div id="last-blogs">
 <h3><%= t('dc_blog.last_blogs') %></h3>
 
 <% for entry in entries %>
@@ -6,3 +7,4 @@
     <span class="title"><%= link_to( entry.subject, { path: 'news', link: entry.link } )%></span>
   </div>
 <% end %>
+</div>
