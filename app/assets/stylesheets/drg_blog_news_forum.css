@@ -72,6 +72,11 @@ height: 1px;
   border-top: none;
 }
 
+#dc-reply-menu {
+border: none;
+padding: 5px 0px;
+}
+
 #dc-forum .reply-top-odd, #dc-forum .reply-top-even {
   margin-top: 10px;
   padding: 4px;
