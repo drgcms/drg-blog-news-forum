@@ -51,6 +51,21 @@ def list_all
 end
 
 ########################################################################
+# List last news on home page. But no more than 3 entries and not older than 2 months.
+########################################################################
+def last_news
+  limit = @opts[:limit] || 3
+  entries = DcNews.only(:created_by_name, :link, :subject, :created_at)
+                  .where(active: true, :created_at.gt => 2.years.ago)
+                  .order_by(created_at: -1).limit(limit).to_a
+  if entries.size > 0
+    @parent.render partial: 'dc_news/last_news', formats: [:html], locals: { entries: entries } 
+  else
+    ''
+  end
+end
+
+########################################################################
 # Default method will dispatch to proper method.
 ########################################################################
 def default

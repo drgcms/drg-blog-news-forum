@@ -44,9 +44,11 @@ en:
     entry_not_found: Blog entry not found
     my_blog: my blog
     comments: Comments
+    last_blogs: Last blogs
 
   dc_news:
     news: News
     new_entry: Create new news article
     edit_entry: Edit news entry
     entry_not_found: News article not found
+    last_news: Last news
