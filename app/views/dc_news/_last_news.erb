@@ -4,7 +4,7 @@
 <% for entry in entries %>
   <div class="entry">
     <span class="date"><%= dc_pretty_date(entry.created_at) %></span>
-    <span class="title"><%= link_to( entry.subject, { path: 'news', link: entry.link } )%></span>
+    <span class="title"><%= link_to( entry.subject, "/#{path}/#{entry.link}" )%></span>
   </div>
 <% end %>
 </div>
