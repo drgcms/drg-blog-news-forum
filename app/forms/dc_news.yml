@@ -34,6 +34,10 @@ form:
         size: 80
 
     30:
+      name: created_at
+      type: datetime_picker
+
+    40:
       name: body
       type: html_field
       options: 'height: 500'      
