@@ -21,6 +21,26 @@
 # WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #++
 
+#########################################################################
+# == Schema information
+#
+# Collection name: dc_forum_topic : Topics
+#
+#  _id                  BSON::ObjectId       _id
+#  created_at           Time                 Creation time
+#  updated_at           Time                 updated_at
+#  subject              String               Subject, short description of topic
+#  body                 String               Topics body
+#  replies              Integer              No of replies
+#  views                Integer              Views
+#  dc_forum_id          Object               Forum that topic belongs to
+#  active               Mongoid::Boolean     Topic is active
+#  created_by           BSON::ObjectId       created_by
+#  updated_by           BSON::ObjectId       updated_by
+#  created_by_name      String               Name
+#  updated_by_name      String               updated_by_name
+#  dc_replies           Embedded:DcReply     dc_replies
+#########################################################################
 class DcForumTopic
   include Mongoid::Document
   include Mongoid::Timestamps

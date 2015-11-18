@@ -21,6 +21,20 @@
 # WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #++
 
+########################################################################
+# == Schema information
+#
+# Collection name: dc_reply : Replies
+#
+#  _id                  BSON::ObjectId       _id
+#  created_at           Time                 Created at
+#  updated_at           Time                 updated_at
+#  subject              String               Subject, short description of reply
+#  body                 String               Body text of reply
+#  active               Mongoid::Boolean     Reply is active
+#  created_by           BSON::ObjectId       Created by
+#  created_by_name      String               Reply author's name
+########################################################################
 class DcReply
   include Mongoid::Document
   include Mongoid::Timestamps

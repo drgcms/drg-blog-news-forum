@@ -21,6 +21,25 @@
 # WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #++
 
+########################################################################
+# == Schema information
+#
+# Collection name: dc_news : News
+#
+#  _id                  BSON::ObjectId       _id
+#  created_at           Time                 Time of creation
+#  updated_at           Time                 updated_at
+#  subject              String               Subject of the news
+#  body                 String               Body
+#  active               Mongoid::Boolean     Active
+#  link                 String               Link to blog entry
+#  valid_from           Date                 valid_from
+#  valid_to             Date                 valid_to
+#  categories           Array                categories
+#  created_by           BSON::ObjectId       ID of the creator
+#  created_by_name      String               Name of the creator
+#  dc_replies           Embedded:DcReply     dc_replies
+########################################################################
 class DcNews
   include Mongoid::Document
   include Mongoid::Timestamps

@@ -22,7 +22,20 @@
 #++
 
 #########################################################################
-# ActiveSupport::Concern definition for DcBlog class. 
+# == Schema information
+#
+# Collection name: dc_blog : Blogs
+#
+#  _id                  BSON::ObjectId       _id
+#  created_at           Time                 Time of creation
+#  updated_at           Time                 updated_at
+#  subject              String               Subject of the blog
+#  body                 String               Body
+#  active               Mongoid::Boolean     Active
+#  link                 String               Link to blog entry
+#  created_by           BSON::ObjectId       ID of the creator
+#  created_by_name      String               Name of the creator
+#  dc_replies           Embedded:DcReply     dc_replies
 #########################################################################
 module DcBlogConcern
 extend ActiveSupport::Concern

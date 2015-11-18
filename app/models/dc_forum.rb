@@ -21,6 +21,28 @@
 # WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #++
 
+#########################################################################
+# == Schema information
+#
+# Collection name: dc_forum : Forums
+#
+#  _id                  BSON::ObjectId       _id
+#  created_at           Time                 created_at
+#  updated_at           Time                 updated_at
+#  name                 String               Forum name (short description)
+#  description          String               Long description of what is forum about
+#  site_id              BSON::ObjectId       Site that forums belongs to
+#  order                Integer              Order
+#  topics               Integer              No of topics
+#  replies              Integer              replies
+#  forum_groups         Array                forum_groups
+#  active               Mongoid::Boolean     active
+#  created_by           BSON::ObjectId       created_by
+#  updated_by           BSON::ObjectId       updated_by
+#  created_by_name      String               created_by_name
+#  updated_by_name      String               updated_by_name
+#  dc_policy_rules      Embedded:DcPolicyRule dc_policy_rules
+#########################################################################
 class DcForum
   include Mongoid::Document
   include Mongoid::Timestamps

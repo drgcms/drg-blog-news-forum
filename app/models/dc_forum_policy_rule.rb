@@ -23,6 +23,17 @@
 
 require_dependency DrgCms.model 'dc_policy_rule'
 
+#########################################################################
+# == Schema information
+#
+# Collection name: dc_forum_policy_rule : Forum access rules
+#
+#  _id                  BSON::ObjectId       _id
+#  created_at           Time                 created_at
+#  updated_at           Time                 updated_at
+#  dc_policy_role_id    Object               User role access defined by this rule
+#  permission           Integer              Access permission
+#########################################################################
 class DcForumPolicyRule
 include DcPolicyRuleConcern
   
