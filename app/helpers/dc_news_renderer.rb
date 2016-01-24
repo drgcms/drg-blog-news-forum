@@ -56,7 +56,7 @@ end
 def last_news
   limit = @opts[:limit] || 3
   entries = DcNews.only(:created_by_name, :link, :subject, :created_at)
-                  .where(active: true, :created_at.gt => 2.months.ago)
+                  .where(active: true, :created_at.gt => 6.months.ago)
                   .order_by(created_at: -1).limit(limit).to_a
   if entries.size > 0
 # for document link.    
