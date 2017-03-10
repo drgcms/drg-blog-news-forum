@@ -1,3 +1,4 @@
+
 <div class="news-title">
   <h1><%= t('dc_news.news') %></h1>
 </div>
@@ -7,7 +8,8 @@
 <% for entry in entries %>
 
   <div class="news-entry">
-    <h3><%= link_to( entry.subject, { path: 'news', link: entry.link } )%></h3>
+    <h4><%= link_to( entry.subject, { path: 'news', link: entry.link } )%></h4>
         <%= dc_pretty_date(entry.created_at) %>
   </div>
 <% end %>
+

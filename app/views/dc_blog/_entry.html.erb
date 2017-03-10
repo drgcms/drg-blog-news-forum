@@ -6,7 +6,7 @@
 <% end %>
 
 <div class="blog-subject"><h1><%= entry.subject %></h1></div>
-<div class="blog-date"><h3><%= t('dc_blog.published') + ' ' + dc_pretty_date(entry.created_at) %></h3></div>
+<div class="blog-date"><h4><%= t('dc_blog.published') + ' ' + dc_pretty_date(entry.created_at) %></h4></div>
 
 <div class="blog-body"><%= entry.body.html_safe %></div>
 <div class="social-sites"><%=  social_sites %></div>

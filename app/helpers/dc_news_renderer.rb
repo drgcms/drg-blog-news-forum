@@ -56,14 +56,24 @@ end
 def last_news
   limit = @opts[:limit] || 3
   entries = DcNews.only(:created_by_name, :link, :subject, :created_at)
-                  .where(active: true, :created_at.gt => 6.months.ago)
+                  .where(active: true) #, :created_at.gt => 6.months.ago)
                   .order_by(created_at: -1).limit(limit).to_a
+=begin
   if entries.size > 0
 # for document link.    
     path = @opts[:path] || 'news'
     @parent.render partial: 'dc_news/last_news', formats: [:html], locals: { entries: entries, path: path } 
   else
     ''
+  end
+=end
+  entries.inject('') do |result, element|
+    result << @parent.link_to("/news/#{element.link}") do 
+      %Q[
+    <span class="date">#{@parent.dc_pretty_date(element.created_at)} : </span>
+    <span class="title">#{element.subject}</span><br><br> 
+      ].html_safe
+    end
   end
 end
 
