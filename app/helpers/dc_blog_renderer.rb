@@ -77,7 +77,7 @@ def last_blogs
   end
 =end
   entries.inject('') do |result, element|
-    result << @parent.link_to("/blog/#{element.link}") do 
+    result << @parent.link_to("/blog/#{element.created_by_name}/#{element.link}") do 
       %Q[
     <span class="date">#{@parent.dc_pretty_date(element.created_at)} : </span>
     <span class="title">#{element.subject}</span><br><br> 
