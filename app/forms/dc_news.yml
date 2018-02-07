@@ -45,7 +45,7 @@ form:
     50:
       name: dc_replies
       type: embedded
-      formname: dc_reply
+      form_name: dc_reply
       table: dc_reply
       html:
         height: 400  

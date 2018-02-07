@@ -52,7 +52,7 @@ form:
     50:
       name: dc_policy_rules
       type: embedded
-      formname: dc_policy_rule
+      form_name: dc_policy_rule
       table: dc_policy_rule
       html:
         height: 400  
