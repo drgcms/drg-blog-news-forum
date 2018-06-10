@@ -43,11 +43,11 @@ end
 ########################################################################
 # List all blogs from one bloger
 ########################################################################
-def list_all
-  entries = DcBlog.only(:created_by_name, :link, :subject, :created_at)
+def list
+  documents = DcBlog.only(:created_by_name, :link, :subject, :created_at)
                   .where(created_by_name: @parent.params[:name]).order_by(created_at: -1)
                   .page(@parent.params[:page]).per(10)
-  @parent.render partial: 'dc_blog/entries', formats: [:html], locals: { entries: entries } 
+  @parent.render partial: 'dc_blog/entries', formats: [:html], locals: { documents: documents } 
 end
 
 ########################################################################
@@ -91,12 +91,13 @@ end
 # Default method will dispatch to proper method.
 ########################################################################
 def default
-  if @parent.params[:name].nil?
+  document_link = @opts[:path].last
+  if document_link == 'blogers'
     list_blogers
-  elsif @parent.params[:link].nil? or @parent.params[:link] == 'all'
-    list_all
+  elsif document_link == @parent.page.subject_link or document_link == @parent.site.homepage_link
+    list
   else
-    show_entry
+    show(document_link)
   end
 end
 
