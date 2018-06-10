@@ -2,10 +2,10 @@
 <div id="last-news">
 <h3><%= t('dc_news.last_news') %></h3>
 
-<% for entry in entries %>
+<% for document in documents %>
   <div class="entry">
-    <span class="date"><%= dc_pretty_date(entry.created_at) %></span>
-    <span class="title"><%= link_to( entry.subject, "/#{path}/#{entry.link}" )%></span>
+    <span class="date"><%= dc_pretty_date(document.created_at) %></span>
+    <span class="title"><%= link_to( document.subject, "/#{path}/#{document.link}" )%></span>
   </div>
 <% end %>
 </div>

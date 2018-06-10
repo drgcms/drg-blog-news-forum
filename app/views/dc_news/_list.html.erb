@@ -1,0 +1,24 @@
+<% 
+clas   = (opts.dig(:settings, opts[:element], 'clas') || 'news') + ' list'
+small  = (opts.dig(:settings, opts[:element], 'small') || 1).to_i
+medium = (opts.dig(:settings, opts[:element], 'medium') || small).to_i
+large  = (opts.dig(:settings, opts[:element], 'large') || medium).to_i
+paging = opts.dig(:settings, opts[:element], 'paging') == '1' 
+link   = opts.dig(:settings, opts[:element], 'link') || @page.subject_link
+title  = opts.dig(:settings, opts[:element], 'title') || t('dc_news.news')
+%>
+
+<div class="<%= clas %>">
+  <%= news_settings(opts) %>
+  <% unless title == '-'  %><h2><%= title %></h2><% end %>
+  <%= if opts[:edit_mode] > 1 
+    dc_link_for_create(controller: 'cmsedit', table: 'dc_news', title: 'dc_blog.new_entry' )
+  end %>
+  
+  <% for document in documents %>
+    <div class="document">
+      <%= dc_pretty_date(document.created_at) %>
+      <h4><%= link_to( document.subject, { path: "#{link}/#{document.link}" } )%></h4>          
+    </div>
+  <% end %>
+</div>

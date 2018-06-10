@@ -1,0 +1,26 @@
+<% 
+clas = (opts.dig(:settings, opts[:element], 'clas') || 'news') + ' one'
+%>
+
+<div class="<%= clas %>">
+<% if session[:edit_mode] > 1 %>
+  <%= dc_link_for_edit(table: 'dc_news', title: 'dc_news.edit_document', id: document.id ) %>
+  <%= dc_link_for_create( table: 'dc_news', title: 'dc_news.new_document' ) %>
+<% end %>
+
+<h2><%= document.subject %></h2>
+<div class="author">
+  <%= "#{t('dc_blog.author')} #{document.created_by_name}, #{dc_pretty_date(document.created_at)}" %>
+</div><br>
+
+<div class="body"><%= document.body.html_safe %></div>
+<div class="social-sites"><%= social_sites %></div>
+
+<div class="news-replies">
+  <h2><%= t('dc_blog.comments') %></h2>
+  <%= render partial: 'dc_replay/reply', formats: [:html], 
+             locals: { replies: replies, parent_doc: document } %>
+</div>
+ 
+<iframe id="iframe_edit" name="iframe_edit" scrolling="no"></iframe>
+</div>

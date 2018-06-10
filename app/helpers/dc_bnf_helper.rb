@@ -21,7 +21,7 @@
 # WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #++
 
-module DcForumHelper
+module DcBnfHelper
 #include DcApplicationHelper  
 
 ########################################################################
@@ -34,6 +34,23 @@ def dc_pretty_date(time)
   when time < 14.hours.ago  then I18n.localize(time, format: :short)
   else                           time.strftime('%H:%M')
   end
+end
+
+########################################################################
+# Link for editing news settings
+########################################################################
+def news_settings(opts)
+  return '' unless opts[:edit_mode] > 1
+# settings can be saved in dc_site or dc_page document 
+  table = opts[:table] || @page.class.to_s
+  id    = (table == 'dc_site') ? @site.id : @page.id
+%Q[<div>  
+  #{dc_link_for_edit(table: 'dc_memory', title: 'helpers.news.settings', 
+                             form_name: 'news_settings', icon: 'cog lg',
+                             id: id, location: table, action: 'new',
+                             element: opts[:element] )}
+  #{dc_link_for_create(table: 'dc_news', title: 'helpers.news.create')}
+</div>].html_safe
 end
 
 end

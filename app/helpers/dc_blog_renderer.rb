@@ -35,8 +35,7 @@ def show_entry
   entry = DcBlog.find_by(created_by_name: @parent.params[:name], link: @parent.params[:link])
   return t('dc_blog.entry_not_found') if entry.nil?
   
-  replies = entry.dc_replies.where(active: true).order(created_at: 1).
-            page(@parent.params[:page]).per(20)
+  replies = DcReply.where(doc_id: entry.id, active: true).order(created_at: 1)
   @parent.render partial: 'dc_blog/entry', formats: [:html], 
                  locals: { entry: entry, replies: replies, opts: @opts }
 end

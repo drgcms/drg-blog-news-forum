@@ -53,7 +53,26 @@ sl:
     entry_not_found: Novica ne obstaja
     last_news: Zadnje novice
     
-    
-    
-
-    
+    settings: Nastavitve za novice
+    categories: Kategorije
+    categories_help: Določi kategorije za prikaz novic
+    number: Število novic
+    number_help: Število novic prikazanih na eno strani
+    paging: Strani
+    paging_help: Dodaj kontrolnik za pomik po straneh
+    small: Mali
+    small_help: Število documentov v vrstici na malem zaslonu
+    medium: Srednji
+    medium_help: Število documentov v vrstici na srednjem zaslonu
+    large: Velik
+    large_help: Število documentov v vrstici na velikem zaslonu
+    title: Naslov 
+    title_help: Naslov prikazan nad seznamom novic. - za brez naslova.
+    clas: CSS Class
+    clas_help: CSS razred v katerega bo ovit prikaz novic
+    list: Prikaz seznama
+    list_help: Rails view za prikaz seznama novic. Privzeto dc_news/list.
+    show: Prikaz dokumenta
+    show_help: Rails view za prikaz dokumenta. Privzeto dc_news/show.
+    link: Link 
+    link_help: Nadrejena povezava za prikaz dokumenta. Privzeto je to povezava trenutne strani.

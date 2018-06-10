@@ -74,7 +74,7 @@ height: 1px;
 
 #dc-reply-menu {
 border: none;
-padding: 5px 0px;
+padding: 1em 0px;
 }
 
 #dc-forum .reply-top-odd, #dc-forum .reply-top-even {
@@ -176,3 +176,8 @@ margin-bottom: 40px;
 padding-top: 5px;
 padding-bottom: 5px;
 }
+
+/**** news  ****/
+.news.one .author {
+  font-size: 1.2em;
+} 

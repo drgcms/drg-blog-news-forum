@@ -36,16 +36,17 @@ form:
     30:
       name: created_at
       type: datetime_picker
-
+      
     40:
+      name: categories
+      type: select
+      multiple: true
+      eval: dc_big_table 'news-categories'
+      html:
+        include_blank: true           
+
+    50:
       name: body
       type: html_field
       options: 'height: 500'      
 
-    50:
-      name: dc_replies
-      type: embedded
-      form_name: dc_reply
-      table: dc_reply
-      html:
-        height: 400  

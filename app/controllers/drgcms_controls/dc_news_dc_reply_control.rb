@@ -32,8 +32,10 @@ module DrgcmsControls::DcNewsDcReplyControl
 ######################################################################
 def dc_new_record()
 # fill with quote when reply_to is present  
-  if params[:reply_to]
-    replyto = @record._parent.dc_replies.find(params[:reply_to])
+    bla
+    if params[:reply_to]
+  
+    replyto = DcReply.find(params[:reply_to])
     @record.subject = "Re: #{replyto.subject}"
     @record.body = "<div class='dc-forum-quote'>#{replyto.body}</div><br>"
   end

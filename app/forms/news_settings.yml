@@ -1,0 +1,91 @@
+## Form for news settings
+table: dc_memory
+title: dc_news.settings
+controls: design_element_settings
+
+form:
+  actions: 
+    1: save
+
+  fields:
+      
+    10:
+      name: categories
+      type: select
+      multiple: true
+      eval: dc_big_table 'news-categories'
+      text: dc_news.categories
+      help: dc_news.categories_help
+      html:
+        include_blank: true        
+      
+    20:
+      name: number
+      type: text_field
+      size: 3
+      text: dc_news.number
+      help: dc_news.number_help
+      
+    30:
+      name: paging
+      type: check_box
+      text: dc_news.paging
+      help: dc_news.paging_help
+      
+    40:
+      name: small
+      type: text_field
+      size: 2
+      text: dc_news.small
+      help: dc_news.small_help
+      group: 3
+      
+    50:
+      name: medium
+      type: text_field
+      size: 2
+      text: dc_news.medium
+      help: dc_news.medium_help
+      
+    60:
+      name: large
+      type: text_field
+      size: 2
+      text: dc_news.large
+      help: dc_news.large_help
+      
+    100:
+      name: title
+      type: text_field
+      size: 30
+      text: dc_news.title
+      help: dc_news.title_help
+      top-line: 1
+      
+    110:
+      name: clas
+      type: text_field
+      size: 10
+      text: dc_news.clas
+      help: dc_news.clas_help
+      
+    120:
+      name: list
+      type: text_field
+      size: 30
+      text: dc_news.list
+      help: dc_news.list_help
+
+    130:
+      name: show
+      type: text_field
+      size: 30
+      text: dc_news.show
+      help: dc_news.show_help
+      
+    140:
+      name: link
+      type: text_field
+      size: 30
+      text: dc_news.link
+      help: dc_news.link_help

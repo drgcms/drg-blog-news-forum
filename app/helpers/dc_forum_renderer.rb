@@ -48,7 +48,8 @@ include DcApplicationHelper
 def topic
   forum = DcForum.find(@parent.params[:forum])
   topic = DcForumTopic.find(@parent.params[:topic])
-  replies = topic.dc_replies.where(active: true).order(created_at: 1).page(@parent.params[:page]).per(10)
+  replies = DcReply.where(doc_id: topic.id, active: true).order(created_at: 1)
+                   .page(@parent.params[:page]).per(10)
   @parent.render partial: 'dc_forum/topic', formats: [:html], 
                  locals: { forum: forum, topic: topic, replies: replies }
 end

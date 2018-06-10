@@ -52,3 +52,28 @@ en:
     edit_entry: Edit news entry
     entry_not_found: News article not found
     last_news: Last news
+    
+    settings: News settings
+    categories: Categories
+    categories_help: Define categories shown by news agregator
+    number: Articles number
+    number_help: Number of articles shown by news agregator
+    paging: Add paging
+    paging_help: Add paging links for the agregator
+    small: Small
+    small_help: Number of articles per line on small screen
+    medium: Medium
+    medium_help: Number of articles per line on medium screen
+    large: Large
+    large_help: Number of articles per line on large screen
+    title: Title 
+    title_help: Title displayed on top of news agregator. - for no title.
+    clas: CSS Class
+    clas_help: CSS Class wrapped around news agregator
+    list: List view
+    list_help: Rails view used for render news agregator. Default is dc_news/list.
+    show: Show view
+    show_help: Rails view used for render document. Default is dc_news/show.
+    link: Link 
+    link_help: Link used to show document. Default is current page link.
+    
