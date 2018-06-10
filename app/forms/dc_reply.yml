@@ -32,4 +32,3 @@ form:
       name: body
       type: html_field
       options: "height: 420, toolbar: 'basic', allowedContent: false" 
-      

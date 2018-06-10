@@ -32,6 +32,8 @@
 #  subject              String               Subject, short description of reply
 #  body                 String               Body text of reply
 #  active               Mongoid::Boolean     Reply is active
+#  doc_id               BSON::ObjectId       Replied document id
+#  doc_class            String               Document origin class
 #  created_by           BSON::ObjectId       Created by
 #  created_by_name      String               Reply author's name
 ########################################################################
@@ -42,11 +44,11 @@ class DcReply
   field :subject,     type: String,  default: ''
   field :body,        type: String,  default: ''
   field :active,      type: Boolean, default: true
+  field :doc_id,      type: BSON::ObjectId
+  field :doc_class,   type: String
 
   field :created_by,      type: BSON::ObjectId
   field :created_by_name, type: String
-
-  embedded_in :replies, polymorphic: true 
 
   validates_length_of :subject,           minimum: 4  
   validates_length_of :body,              minimum: 10

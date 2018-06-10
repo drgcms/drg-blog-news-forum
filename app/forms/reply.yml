@@ -1,5 +1,7 @@
 
 table: dc_reply
+title: Reply
+controls: reply
 
 form:
   height: 750
@@ -24,4 +26,13 @@ form:
       name: body
       type: html_field
       options: "height: 420, toolbar: 'basic', allowedContent: false" 
+      
+    100:
+      name: doc_id
+      type: hidden_field
+      
+    110:
+      name: doc_class
+      type: hidden_field
+     
       
