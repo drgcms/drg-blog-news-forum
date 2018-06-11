@@ -30,17 +30,15 @@
 #  created_at           Time                 created_at
 #  updated_at           Time                 updated_at
 #  name                 String               Forum name (short description)
+#  link                 String               Forum link
 #  description          String               Long description of what is forum about
-#  site_id              BSON::ObjectId       Site that forums belongs to
 #  order                Integer              Order
 #  topics               Integer              No of topics
 #  replies              Integer              replies
 #  forum_groups         Array                forum_groups
-#  active               Mongoid::Boolean     active
+#  active               Boolean              Is active
 #  created_by           BSON::ObjectId       created_by
 #  updated_by           BSON::ObjectId       updated_by
-#  created_by_name      String               created_by_name
-#  updated_by_name      String               updated_by_name
 #  dc_policy_rules      Embedded:DcPolicyRule dc_policy_rules
 #########################################################################
 class DcForum
@@ -48,8 +46,8 @@ class DcForum
   include Mongoid::Timestamps
   
   field :name,        type: String,  default: ''
+  field :link,        type: String
   field :description, type: String,  default: ''
-  field :site_id,     type: BSON::ObjectId
   field :order,       type: Integer, default: 10
   field :topics,      type: Integer, default: 0
   field :replies,     type: Integer, default: 0
@@ -58,10 +56,23 @@ class DcForum
   field :active,      type: Boolean, default: true 
   field :created_by,  type: BSON::ObjectId
   field :updated_by,  type: BSON::ObjectId
-  field :created_by_name, type: String
-  field :updated_by_name, type: String
   
   embeds_many :dc_policy_rules, as: :policy_rules
   
-  index( { name: 1 } )
+  index( { link: 1 } )
+  
+  validates_length_of :name, minimum: 4    
+  
+  before_save :do_before_save  
+  
+########################################################################
+# Update link when left blank.
+########################################################################
+def do_before_save
+  if self.link.size < 5
+    self.link = self.name.strip.downcase.gsub(' ','-')
+  end
+end  
+
+
 end

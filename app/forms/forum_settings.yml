@@ -1,0 +1,56 @@
+## Form for news settings
+table: dc_memory
+title: dc_forum.settings
+controls: design_element_settings
+
+form:
+  actions: 
+    1: save
+
+  fields:
+      
+    10:
+      name: forum_groups
+      type: select
+      multiple: true
+      eval: dc_big_table 'forum-groups'
+      text: helpers.label.dc_forum.forum_groups
+      help: helpers.help.dc_forum.forum_groups
+      html:
+        include_blank: true           
+
+    100:
+      name: title
+      type: text_field
+      size: 30
+      text: dc_forum.title
+      help: dc_forum.title_help
+      top-line: 1
+      
+    110:
+      name: clas
+      type: text_field
+      size: 10
+      text: dc_news.clas
+      help: dc_news.clas_help
+      
+    120:
+      name: list
+      type: text_field
+      size: 30
+      text: dc_news.list
+      help: dc_news.list_help
+
+    130:
+      name: show
+      type: text_field
+      size: 30
+      text: dc_news.show
+      help: dc_news.show_help
+      
+    140:
+      name: link
+      type: text_field
+      size: 30
+      text: dc_news.link
+      help: dc_news.link_help

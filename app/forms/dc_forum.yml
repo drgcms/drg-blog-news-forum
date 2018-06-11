@@ -10,10 +10,7 @@ result_set:
   columns:
     1:  
       name: name
-    2:  
-      name: site_id
-      eval: dc_name4_id,dc_site,name
-    3: 
+    2: 
       name: order
     4: 
       name: active
@@ -28,28 +25,32 @@ form:
     10:
       name: name
       type: text_field
-      html:
-        size: 50
+      size: 50
 
     20:
-      name: description
-      type: text_area
-      html:
-        size: 80x10
+      name: link
+      type: text_field
+      size: 50
 
     30:
-      name: site_id
-      type: select
-      eval: DcSite.choices4_site
-      html:
-        include_blank: true
+      name: description
+      type: text_area
+      size: 80x8
+
     40:
+      name: forum_groups
+      type: select
+      multiple: true
+      eval: dc_big_table 'forum-groups'
+      html:
+        include_blank: true           
+
+    50:
       name: order
       type: text_field
-      html:
-        size: 3
+      size: 3
        
-    50:
+    60:
       name: dc_policy_rules
       type: embedded
       form_name: dc_policy_rule

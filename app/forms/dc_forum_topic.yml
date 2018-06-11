@@ -9,12 +9,15 @@ form:
 
   fields:
     10:
+      name: created_by_name
+      type: readonly
+    
+    20:
       name: subject
       type: text_field
-      html:
-        size: 80
+      size: 80
 
-    20:
+    30:
       name: body
       type: html_field
       options: "height: 420, toolbar: 'basic'" 
@@ -22,7 +25,3 @@ form:
     100:
       name: dc_forum_id
       type: hidden_field
-    110:
-      name: created_by_name
-      type: hidden_field
-
