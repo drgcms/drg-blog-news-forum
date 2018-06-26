@@ -47,7 +47,7 @@ def list
   documents = DcBlog.only(:created_by_name, :link, :subject, :created_at)
                   .where(created_by_name: @parent.params[:name]).order_by(created_at: -1)
                   .page(@parent.params[:page]).per(10)
-  @parent.render partial: 'dc_blog/entries', formats: [:html], locals: { documents: documents } 
+  @parent.render partial: 'dc_blog/list', formats: [:html], locals: { documents: documents } 
 end
 
 ########################################################################
