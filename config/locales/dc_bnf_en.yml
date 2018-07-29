@@ -45,6 +45,7 @@ en:
     my_blog: my blog
     comments: Comments
     last_blogs: Last blogs
+    blogs: Blogs
 
   dc_news:
     news: News

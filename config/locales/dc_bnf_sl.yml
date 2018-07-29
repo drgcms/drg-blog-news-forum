@@ -45,6 +45,7 @@ sl:
     my_blog: moj blog
     comments: Komentarji
     last_blogs: Zadnje objave na blogu
+    blogs: Blogi
     
   dc_news:
     news: Novice

@@ -45,6 +45,8 @@ end
 ######################################################################
 def dc_before_save()
   params[:return_to] = 'parent.reload'
+# simple automatic robot trap  
+  return false unless params[:record][:honey].blank?
 end
 
 end 

@@ -1,0 +1,21 @@
+<div class="wrap">
+<% if session[:edit_mode] > 1 %>
+  <%= dc_link_for_create(controller: 'cmsedit', table: 'dc_blog', title: 'dc_blog.new_document' ) %>
+  <br><br>
+  <%= dc_link_for_edit(controller: 'cmsedit', table: 'dc_blog', title: 'dc_blog.edit_document', id: document.id ) %>
+<% end %>
+
+<div class="blog-subject"><h2><%= document.subject %></h2></div>
+<div class="blog-date"><h4><%= t('dc_blog.published') + ' ' + dc_pretty_date(document.created_at) %></h4></div>
+
+<div class="blog-body"><%= document.body.html_safe %></div>
+<div class="social-sites"><%=  social_sites %></div>
+
+<div class="blog-replies">
+  <h2><%= t('dc_blog.comments') %></h2>
+  <%= render partial: 'dc_replay/reply', formats: [:html], 
+             locals: { replies: replies, parent_doc: document } %>
+</div>
+
+<iframe id="iframe_edit" name="iframe_edit" scrolling="no"></iframe>
+</div>

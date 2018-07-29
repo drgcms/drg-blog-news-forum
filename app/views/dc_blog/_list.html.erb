@@ -1,13 +1,13 @@
-<% link = 'blog' %>
-<div class="wrap">
-<div id="last-blogs">
-<h3><%= t('dc_blog.last_blogs') %></h3>
 
-<% for entry in documents %>
-  <div class="entry">
-    <span class="date"><%= dc_pretty_date(entry.created_at) %></span>
-    <span class="title"><%= link_to( entry.subject, { path: "#{link}/#{entry.link}"} )%></span>
+<div class="wrap">
+  <div id="blogs">
+  <h3><%= t('dc_blog.blogs') %></h3>
+
+  <% for document in documents %>
+    <div class="entry">
+      <div class="date"><%= dc_pretty_date(document.created_at) %></div>
+      <div class="title"><%= link_to( document.subject, "#{@page.link}/#{document.link}" )%></div>
+    </div>
+  <% end %>
   </div>
-<% end %>
-</div>
 </div>

@@ -77,7 +77,7 @@ border: none;
 padding: 1em 0px;
 }
 
-#dc-forum .reply-top-odd, #dc-forum .reply-top-even {
+#dc-forum .reply-top.odd, #dc-forum .reply-top.even {
   margin-top: 10px;
   padding: 4px;
   background: #eee;
@@ -86,7 +86,7 @@ padding: 1em 0px;
   border-top-right-radius: 3px; 
 }
 
-#dc-forum .reply-body-odd, #dc-forum .reply-body-even {
+#dc-forum .reply-body.odd, #dc-forum .reply-body.even {
   padding: 4px;
   background: #f8f8f8;
   border: 1px solid #ddd;
@@ -135,6 +135,10 @@ border-radius: 2px;
 }
 
 /******* dc_blog *******/
+#blogs .title {
+  font-size: 1.4em;
+    padding-bottom: 5px;
+}
 .blog-subject {
 font-size: 1.4em;
 font-weight: bold;
@@ -149,16 +153,16 @@ margin-bottom: 20px;
 }
 .blog-replies {
 }
-.reply-top-even {
+.reply-top.even {
 padding:5px;
 background-color: #fff;
 }
-.reply-top-odd {
+.reply-top.odd {
 padding:5px;
 background-color: #eee;
 }
 
-.reply-body-even p, .reply-body-odd p {  
+.reply-body.even p, .reply-body.odd p {  
 margin-top: 0em; 
 margin-bottom: 0em;
 }

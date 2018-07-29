@@ -30,14 +30,13 @@ include DcApplicationHelper
 ########################################################################
 # Show one blog entry
 ########################################################################
-def show_entry
-#  blog = @parent.params[:blog_id] ? DcBlog.find(@parent.params[:blog_id]) : DcBlog.last
-  entry = DcBlog.find_by(created_by_name: @parent.params[:name], link: @parent.params[:link])
+def show(link)
+  entry = DcBlog.find_by(link: link)
   return t('dc_blog.entry_not_found') if entry.nil?
   
   replies = DcReply.where(doc_id: entry.id, active: true).order(created_at: 1)
-  @parent.render partial: 'dc_blog/entry', formats: [:html], 
-                 locals: { entry: entry, replies: replies, opts: @opts }
+  @parent.render partial: 'dc_blog/show', formats: [:html], 
+                 locals: { document: entry, replies: replies, opts: @opts }
 end
 
 ########################################################################
@@ -45,7 +44,7 @@ end
 ########################################################################
 def list
   documents = DcBlog.only(:created_by_name, :link, :subject, :created_at)
-                  .where(created_by_name: @parent.params[:name]).order_by(created_at: -1)
+                  .where(active: true).order_by(created_at: -1)
                   .page(@parent.params[:page]).per(10)
   @parent.render partial: 'dc_blog/list', formats: [:html], locals: { documents: documents } 
 end
@@ -64,22 +63,14 @@ end
 def last_blogs
   limit = @opts[:limit] || 3
   entries = DcBlog.only(:created_by_name, :link, :subject, :created_at)
-                  .where(active: true) #, :created_at.gt => 6.months.ago)
+                  .where(active: true) 
                   .order_by(created_at: -1).limit(limit).to_a
-=begin
-  if entries.size > 0
-# for document link.    
-    path = @opts[:path] || 'blog'    
-    @parent.render partial: 'dc_blog/last_blogs', formats: [:html], locals: { entries: entries, path: path } 
-  else
-    ''
-  end
-=end
-  entries.inject('') do |result, element|
-    result << @parent.link_to("/blog/#{element.created_by_name}/#{element.link}") do 
+
+  entries.inject('') do |result, document|
+    result << @parent.link_to("/blog/#{document.link}") do 
       %Q[
-    <span class="date">#{@parent.dc_pretty_date(element.created_at)} : </span>
-    <span class="title">#{element.subject}</span><br><br> 
+    <span class="date">#{@parent.dc_pretty_date(document.created_at)} : </span>
+    <span class="title">#{document.subject}</span><br><br> 
       ].html_safe
     end
   end
