@@ -42,7 +42,7 @@ end
 ########################################################################
 # List all blogs from one bloger
 ########################################################################
-def list
+def list(bloger)
   documents = DcBlog.only(:created_by_name, :link, :subject, :created_at)
                   .where(active: true).order_by(created_at: -1)
                   .page(@parent.params[:page]).per(10)
@@ -83,10 +83,11 @@ end
 ########################################################################
 def default
   document_link = @opts[:path].last
-  if document_link == 'blogers'
+  p @opts[:path]
+  if @opts[:path].size == 1 or document_link == 'blogers'
     list_blogers
-  elsif document_link == @parent.page.subject_link or document_link == @parent.site.homepage_link
-    list
+  elsif @opts[:path].size == 2 
+    list(document_link)
   else
     show(document_link)
   end

@@ -6,7 +6,7 @@
   <% for document in documents %>
     <div class="entry">
       <div class="date"><%= dc_pretty_date(document.created_at) %></div>
-      <div class="title"><%= link_to( document.subject, "#{@page.link}/#{document.link}" )%></div>
+      <div class="title"><%= link_to( document.subject, path: "#{@page.link}/#{document.created_by_name}/#{document.link}" )%></div>
     </div>
   <% end %>
   </div>

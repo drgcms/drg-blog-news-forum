@@ -8,7 +8,7 @@
 
 <% for bloger in blogers %>
   <div class="blog-entry">
-     <%= link_to( bloger, { path: 'blog', name: bloger} )%>
+     <%= link_to( bloger, { path: "blog/#{bloger}"} )%>
   </div>
 <% end %>
 </div>
