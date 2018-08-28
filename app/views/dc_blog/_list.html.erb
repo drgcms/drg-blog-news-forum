@@ -1,13 +1,11 @@
 
-<div class="wrap">
-  <div id="blogs">
-  <h3><%= t('dc_blog.blogs') %></h3>
+<div id="blogs">
+<h3><%= t('dc_blog.blogs') %></h3>
 
-  <% for document in documents %>
-    <div class="entry">
-      <div class="date"><%= dc_pretty_date(document.created_at) %></div>
-      <div class="title"><%= link_to( document.subject, path: "#{@page.link}/#{document.created_by_name}/#{document.link}" )%></div>
-    </div>
-  <% end %>
+<% for document in documents %>
+  <div class="entry">
+    <div class="date"><%= dc_pretty_date(document.created_at) %></div>
+    <div class="title"><%= link_to( document.subject, path: "#{@page.link}/#{document.created_by_name}/#{document.link}" )%></div>
   </div>
+<% end %>
 </div>

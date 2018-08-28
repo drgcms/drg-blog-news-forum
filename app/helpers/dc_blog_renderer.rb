@@ -67,7 +67,7 @@ def last_blogs
                   .order_by(created_at: -1).limit(limit).to_a
 
   entries.inject('') do |result, document|
-    result << @parent.link_to("/blog/#{document.link}") do 
+    result << @parent.link_to("/blog/#{document.created_by_name}/#{document.link}") do 
       %Q[
     <span class="date">#{@parent.dc_pretty_date(document.created_at)} : </span>
     <span class="title">#{document.subject}</span><br><br> 
@@ -83,7 +83,6 @@ end
 ########################################################################
 def default
   document_link = @opts[:path].last
-  p @opts[:path]
   if @opts[:path].size == 1 or document_link == 'blogers'
     list_blogers
   elsif @opts[:path].size == 2 
