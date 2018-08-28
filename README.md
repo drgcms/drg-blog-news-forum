@@ -12,20 +12,13 @@ Add this line to your Gemfile:
 
 Usage: 
 
-Create dc_page documents with blog, news and forum links.
+Create dc_page documents with blog, news or forum links.
 
 Create related dc_design documents and use one of this lines for rendering html code.  
 ```irb
-<div id="dc-blog"><%= dc_render(:dc_blog) %></div>
-<div id="dc-news"><%= dc_render(:dc_news) %></div>
-<div id="dc-forum"><%= dc_render(:dc_forum) %></div>
-```
-
-Add this lines to routes.rb.
-```ruby
-  get '/blog/:name/:link' => 'dc_main#page', :defaults => { path: 'blog' }
-  get '/blog/:name' => 'dc_main#page', :defaults => { path: 'blog', link: 'all' }
-  get '/news/:link' => 'dc_main#page', :defaults => { path: 'news' }
+<%= dc_render(:dc_blog) %>
+<%= dc_render(:dc_news) %>
+<%= dc_render(:dc_forum) %>
 ```
 
 Documentation
@@ -37,7 +30,7 @@ Please see the DRG CMS website for up-to-date documentation:
 License
 -------
 
-Copyright (c) 2014-2015 Damjan Rems
+Copyright (c) 2014-2018 Damjan Rems
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
