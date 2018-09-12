@@ -17,7 +17,7 @@
 
 <div id="dc-reply-menu">
   <div class="dc-link dc-animate" style="float: left;">
-  <%= link_to( t('dc_forum.new_reply'), { controller: 'cmsedit', table: "dc_reply", 
+  <%= link_to( t('dc_forum.new_comment'), { controller: 'cmsedit', table: "dc_reply", 
                form_name: 'reply', action: 'new', 
                p_doc_id: parent_doc.id, p_doc_class: parent_doc.class.to_s}, 
                {target: 'iframe_edit', class: 'dc-animate'}) %>

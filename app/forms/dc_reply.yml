@@ -17,18 +17,26 @@ form:
 
   fields:
     10:
+      name: doc_id
+      type: readonly
+
+    20:
+      name: doc_class
+      type: readonly
+
+    30:
       name: created_by_name
       type: text_field
       html:
         size: 30
       
-    20:
+    40:
       name: subject
       type: text_field
       html:
         size: 80
 
-    30:
+    50:
       name: body
       type: html_field
       options: "height: 420, toolbar: 'basic', allowedContent: false" 

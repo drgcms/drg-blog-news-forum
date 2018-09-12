@@ -26,6 +26,12 @@ form:
       name: body
       type: html_field
       options: "height: 420, toolbar: 'basic', allowedContent: false" 
+    40:
+       name: _honey
+       type: text_field
+       text: Click on save button to save comment!
+       html:
+         style: "display: none;"      
       
     100:
       name: doc_id
@@ -34,9 +40,3 @@ form:
     110:
       name: doc_class
       type: hidden_field
-     
-    120:
-      name: honey
-      type: hidden_field
-     
-      

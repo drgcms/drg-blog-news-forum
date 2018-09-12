@@ -58,7 +58,7 @@ sl:
         views: Vpogledov
    
       dc_reply:
-        tabletitle: Odgovor
+        tabletitle: Komentarji
 
         subject: Zadeva
         body: Vsebina

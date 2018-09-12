@@ -40,4 +40,9 @@ menu:
         controller: cmsedit
         icon: server lg
         table: dc_forum
+      40: 
+        caption: helpers.label.dc_reply.tabletitle
+        controller: cmsedit
+        icon: commenting-o lg
+        table: dc_reply
                        

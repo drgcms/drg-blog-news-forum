@@ -46,7 +46,7 @@ end
 def dc_before_save()
   params[:return_to] = 'parent.reload'
 # simple automatic robot trap  
-  return false unless params[:record][:honey].blank?
+  return false unless params[:_record][:_honey].blank?
 end
 
 end 

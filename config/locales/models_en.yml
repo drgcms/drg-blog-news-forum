@@ -59,7 +59,7 @@ en:
         views: Views
    
       dc_reply:
-        tabletitle: Replies
+        tabletitle: Comments
 
         subject: Subject
         body: Body
