@@ -34,7 +34,7 @@ Gem::Specification.new do |s|
   s.homepage    = "http://www.drgcms.org"
   s.summary     = "DRG CMS: Blog, news and forum plugin for DRG CMS"
   s.description = "DRG CMS: drg_blog_news_forum plugin implements basic funcionality for enabling blog, news or forum."
-  s.license     = "MIT-LICENSE"
+  s.license     = "MIT"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
   s.test_files = Dir["test/**/*"]
