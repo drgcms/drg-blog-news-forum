@@ -38,7 +38,7 @@ en:
     
   dc_blog:
     author: Author
-    blogers: List of our blogers
+    bloggers: List of our bloggers
     published: Published on,
     new_entry: New blog entry
     edit_entry: Edit blog entry

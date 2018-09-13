@@ -38,7 +38,7 @@ sl:
 
   dc_blog:
     author: Avtor
-    blogers: Seznam naših blogerjev
+    bloggers: Seznam naših blogerjev
     published: Objava,
     new_entry: Nov vpis v blog
     edit_entry: Uredi vpis v blog

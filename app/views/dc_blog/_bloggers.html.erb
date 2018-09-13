@@ -3,11 +3,11 @@
   <%= dc_link_for_create(controller: 'cmsedit', table: 'dc_blog', title: 'dc_blog.new_entry' ) %>
 <% end %>
 <div class="blog-title">
-  <h1><%= t('dc_blog.blogers') %></h1>
+  <h1><%= t('dc_blog.bloggers') %></h1>
 </div>
 
-<% for bloger in blogers %>
+<% for blogger in bloggers %>
   <div class="blog-entry">
-     <%= link_to( bloger, { path: "blog/#{bloger}"} )%>
+     <%= link_to( blogger, { path: "blog/#{blogger}"} )%>
   </div>
 <% end %>

@@ -40,21 +40,21 @@ def show(link)
 end
 
 ########################################################################
-# List all blogs from one bloger
+# List all blogs from single blogger
 ########################################################################
-def list(bloger)
+def list(blogger)
   documents = DcBlog.only(:created_by_name, :link, :subject, :created_at)
-                  .where(active: true).order_by(created_at: -1)
+                  .where(created_by_name: blogger, active: true).order_by(created_at: -1)
                   .page(@parent.params[:page]).per(10)
   @parent.render partial: 'dc_blog/list', formats: [:html], locals: { documents: documents } 
 end
 
 ########################################################################
-# List all blogers
+# List all bloggers
 ########################################################################
-def list_blogers
-  blogers = DcBlog.all.distinct(:created_by_name)
-  @parent.render partial: 'dc_blog/blogers', formats: [:html], locals: { blogers: blogers } 
+def list_bloggers
+  bloggers = DcBlog.all.distinct(:created_by_name)
+  @parent.render partial: 'dc_blog/bloggers', formats: [:html], locals: { bloggers: bloggers } 
 end
 
 ########################################################################
@@ -62,9 +62,9 @@ end
 ########################################################################
 def last_blogs
   limit = @opts[:limit] || 3
-  entries = DcBlog.only(:created_by_name, :link, :subject, :created_at)
-                  .where(active: true) 
-                  .order_by(created_at: -1).limit(limit).to_a
+  entries = DcBlog.only(:created_by_name, :link, :subject, :created_at).where(active: true)
+  entries = entries.and(created_by_name: @opts[:blogger]) if @opts[:blogger]
+  entries = entries.order_by(created_at: -1).limit(limit).to_a
 
   entries.inject('') do |result, document|
     result << @parent.link_to("/blog/#{document.created_by_name}/#{document.link}") do 
@@ -83,8 +83,8 @@ end
 ########################################################################
 def default
   document_link = @opts[:path].last
-  if @opts[:path].size == 1 or document_link == 'blogers'
-    list_blogers
+  if @opts[:path].size == 1 or document_link == 'bloggers'
+    list_bloggers
   elsif @opts[:path].size == 2 
     list(document_link)
   else
