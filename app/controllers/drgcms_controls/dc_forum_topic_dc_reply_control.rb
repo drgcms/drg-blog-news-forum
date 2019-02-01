@@ -37,6 +37,9 @@ def dc_new_record()
     @record.subject = "Re: #{replyto.subject}"
     @record.body = "<div class='dc-forum-quote'>#{replyto.body}</div><br>"
   end
+  @record.created_by_name = session[:user_name] if session[:user_name]  
+  @record.doc_id    = params[:parent_doc]
+  @record.doc_class = 'DcForum'
 end
 
 ######################################################################

@@ -37,6 +37,7 @@ def dc_new_record()
     @record.subject = (replyto.subject.match('Re:') ? '' : 'Re: ') + replyto.subject
     @record.body = "<div class='dc-forum-quote'>#{replyto.body}</div><br>"
   end
+  pp sessiond
   @record.created_by_name = session[:user_name] if session[:user_name]
 end
 

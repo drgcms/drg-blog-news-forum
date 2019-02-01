@@ -51,7 +51,7 @@ def topic
   replies = DcReply.where(doc_id: topic.id, active: true).order(created_at: 1)
                    .page(@parent.params[:page]).per(10)
   @parent.render partial: 'dc_forum/topic', formats: [:html], 
-                 locals: { forum: forum, topic: topic, replies: replies }
+                 locals: { forum: forum, topic: topic, replies: replies, opts: @opts  }
 end
 
 ########################################################################
@@ -64,7 +64,7 @@ def topics
   topics = DcForumTopic.only(:id, :created_by_name, :updated_by_name, :subject, :created_at, :updated_at, :replies)
            .where(dc_forum_id: forum._id, active: true).order(updated_at: -1)
            .page(@parent.params[:page]).per(10)
-  @parent.render partial: 'dc_forum/topics', formats: [:html], locals: { forum: forum, topics: topics }
+  @parent.render partial: 'dc_forum/topics', formats: [:html], locals: { forum: forum, topics: topics, opts: @opts  }
 end
 
 ########################################################################

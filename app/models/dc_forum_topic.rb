@@ -57,8 +57,7 @@ class DcForumTopic
   field :created_by,  type: BSON::ObjectId
   field :updated_by,  type: BSON::ObjectId
   field :created_by_name, type: String
-  field :updated_by_name, type: String
-  
+  field :updated_by_name, type: String  
   
   index( { dc_forum_id: 1 } )
   

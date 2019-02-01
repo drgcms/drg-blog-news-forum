@@ -56,6 +56,7 @@ class DcForum
   field :active,      type: Boolean, default: true 
   field :created_by,  type: BSON::ObjectId
   field :updated_by,  type: BSON::ObjectId
+  field :updated_by_name, type: String  
   
   embeds_many :dc_policy_rules, as: :policy_rules
   

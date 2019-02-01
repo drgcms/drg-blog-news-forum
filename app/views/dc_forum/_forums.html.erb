@@ -1,11 +1,12 @@
 <div class="wrap">
+  <%= pp opts; "<div id=\"#{opts[:div_id]}\">".html_safe if opts[:div_id] %>
 <%= if session[:edit_mode] > 1 
   dc_link_for_create(controller: 'cmsedit', table: 'dc_forum', title: 'dc_forum.add_new_forum' )
     end %>
 
 <div class="forum-topics">
   <div class="forum-title">
-    <h1><%= t 'dc_forum.forums_list' %></h1>
+    <h3><%= t 'dc_forum.forums_list' %></h3>
   </div>
   
   <% for forum in forums %>
@@ -15,6 +16,7 @@
       <div class="name">  
         <%= link_to(forum.name,{ path: params[:path], forum: forum.id} ) %>
       </div>
+
       <div class='description'>
         <%= forum.description %><hr>
          <b><%= t('dc_forum.topics') %>:</b>
@@ -30,5 +32,8 @@
       </div>
     </div>
   <% end %>
-</div>  
 </div>
+<%= "</div>".html_safe if opts[:div_id] %>
+
+</div>
+

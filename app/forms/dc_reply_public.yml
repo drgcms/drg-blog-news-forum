@@ -1,0 +1,37 @@
+table: dc_reply
+
+form:
+  actions:
+    1: 
+      type: save    
+    5: 
+      type: script
+      caption: Cancle 
+      js: parent.reload();
+    
+  height: 750
+  actions: standard
+
+  fields:
+    10:
+      name: doc_id
+      type: hidden_field
+
+    20:
+      name: doc_class
+      type: hidden_field
+
+    30:
+      name: created_by_name
+      type: text_field
+      size: 30
+      
+    40:
+      name: subject
+      type: text_field
+      size: 80
+
+    50:
+      name: body
+      type: html_field
+      options: "height: 420, toolbar: 'basic', allowedContent: false" 

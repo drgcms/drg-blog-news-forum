@@ -1,4 +1,6 @@
 <div class="wrap">
+<%= pp opts; "<div id=\"#{opts[:div_id]}\">".html_safe if opts[:div_id] %>
+  
 <div class="forum-topics">
   <div id="back-list"><%= link_to( t('dc_forum.forums_list'), { path: params[:path] }) %> </div>
   
@@ -43,4 +45,5 @@
 </div>
 
 <iframe id="iframe_edit" name="iframe_edit" scrolling="no"></iframe>
+<%= "</div>".html_safe if opts[:div_id] %>
 </div>
