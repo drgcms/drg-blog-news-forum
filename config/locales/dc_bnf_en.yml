@@ -35,6 +35,7 @@ en:
     topics: Topics
     replies: Replies
     last: Last
+    last_change: Last change
     
   dc_blog:
     author: Author

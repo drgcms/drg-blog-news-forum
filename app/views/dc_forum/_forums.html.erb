@@ -1,5 +1,5 @@
-<div class="wrap">
-  <%= pp opts; "<div id=\"#{opts[:div_id]}\">".html_safe if opts[:div_id] %>
+
+<%= pp opts; "<div id=\"#{opts[:div_id]}\">".html_safe if opts[:div_id] %>
 <%= if session[:edit_mode] > 1 
   dc_link_for_create(controller: 'cmsedit', table: 'dc_forum', title: 'dc_forum.add_new_forum' )
     end %>
@@ -18,22 +18,26 @@
       </div>
 
       <div class='description'>
-        <%= forum.description %><hr>
-         <b><%= t('dc_forum.topics') %>:</b>
-         <%= forum.topics %> &nbsp;|&nbsp; 
-
+        <%= forum.description %><br>
+        <b><%= t('dc_forum.topics') %>:</b>
+         <%= forum.topics %> &nbsp;|&nbsp;
+         
+<% zadnja_sprememba = DcForumTopic.where(dc_forum_id: forum.id).order_by(updated_at: -1).first; if zadnja_sprememba %>
+         <b><%= t('dc_forum.last_change') %>:</b>
+         <%= dc_pretty_date(zadnja_sprememba.updated_at) %> &nbsp;|&nbsp; 
+         <%= link_to(zadnja_sprememba.subject, { path: params[:path], forum: forum.id, topic: zadnja_sprememba._id } ) %>
+<% end %>         
+         
+<% if false %>
          <b><%= t('dc_forum.replies') %>:</b>
          <%= forum.replies %> &nbsp;|&nbsp; 
 
          <b><%= t('dc_forum.last') %>:</b>
          <%= forum.updated_by_name %>
          <%= dc_pretty_date(forum.updated_at) %>
-      
+<% end %>      
       </div>
     </div>
   <% end %>
 </div>
 <%= "</div>".html_safe if opts[:div_id] %>
-
-</div>
-

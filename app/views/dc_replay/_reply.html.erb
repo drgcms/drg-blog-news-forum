@@ -2,7 +2,7 @@
 <% for reply in replies %>
   <% oddeven = cycle("odd", "even") %>
   <div class="reply-top <%= oddeven %>">
-    <span style="float: right; top-margin: 5px;">
+    <span style="float:right;">
       <%= link_to( t('dc_forum.new_reply'), { table: 'dc_reply', form_name: 'reply', 
                    controller: :cmsedit, action: 'new', reply_to: reply.id,
                    p_doc_id: parent_doc.id, p_doc_class: parent_doc.class.to_s }, 
@@ -10,14 +10,14 @@
     </span>
     <b><%= reply.subject %></b><br>
     <%= t('dc_forum.replied_by') %>: <%= reply.created_by_name %>, 
-    <%= dc_pretty_date(reply.created_at) %>&nbsp;&nbsp;<br><br>
+    <%= dc_pretty_date(reply.created_at) %>&nbsp;&nbsp;<br>
     <div class="reply-body <%= oddeven %>"><%= reply.body.html_safe %></div>
   </div>
 <% end %>
 
 <div id="dc-reply-menu">
   <div class="dc-link dc-animate" style="float: left;">
-  <%= link_to( t('dc_forum.new_comment'), { controller: 'cmsedit', table: "dc_reply", 
+  <%= link_to( t('dc_forum.new_reply'), { controller: 'cmsedit', table: "dc_reply", 
                form_name: 'reply', action: 'new', 
                p_doc_id: parent_doc.id, p_doc_class: parent_doc.class.to_s}, 
                {target: 'iframe_edit', class: 'dc-animate'}) %>

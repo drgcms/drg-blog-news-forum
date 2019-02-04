@@ -7,20 +7,24 @@ form:
   height: 750
   labels_pos: top
   actions: 
-    1: save
+    1: 
+      type: script
+      caption: drgcms.back 
+      icon: arrow-left
+      js: parent.location.reload();
+
+    5: save
 
   fields:
     10:
       name: created_by_name
       type: text_field
-      html:
-        size: 30
+      size: 30
       
     20:
       name: subject
       type: text_field
-      html:
-        size: 80
+      size: 80
 
     30:
       name: body

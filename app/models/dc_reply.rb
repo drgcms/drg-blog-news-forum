@@ -49,8 +49,10 @@ class DcReply
 
   field :created_by,      type: BSON::ObjectId
   field :created_by_name, type: String
+  
+  index( { doc_id: 1 } )
 
-  validates_length_of :subject,           minimum: 4  
-  validates_length_of :body,              minimum: 10
+  validates_length_of :subject,           minimum: 5  
+  validates_length_of :body,              minimum: 5
   validates_length_of :created_by_name,   minimum: 5
 end

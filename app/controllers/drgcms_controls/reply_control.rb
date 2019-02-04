@@ -35,9 +35,8 @@ def dc_new_record()
   if params[:reply_to]
     replyto = DcReply.find(params[:reply_to])
     @record.subject = (replyto.subject.match('Re:') ? '' : 'Re: ') + replyto.subject
-    @record.body = "<div class='dc-forum-quote'>#{replyto.body}</div><br>"
+    @record.body = "<div class='dc-forum-quote'>[#{replyto.created_by_name}]#{replyto.body}</div><p><br></p>"
   end
-  pp sessiond
   @record.created_by_name = session[:user_name] if session[:user_name]
 end
 
@@ -48,6 +47,18 @@ def dc_before_save()
   params[:return_to] = 'parent.reload'
 # simple automatic robot trap  
   return false unless params[:_record][:_honey].blank?
+end
+
+######################################################################
+# Called after succesfull save.
+######################################################################
+def dc_after_save()
+  replies = DcReply.where(doc_id: @record.doc_id, active: true).count
+  parent = @record.doc_class.constantize
+  doc = parent.find_by(id: @record.doc_id)
+  doc.replies = replies
+  doc.updated_by_name = @record.created_by_name
+  doc.save
 end
 
 end 

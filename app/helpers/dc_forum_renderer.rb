@@ -49,7 +49,7 @@ def topic
   forum = DcForum.find(@parent.params[:forum])
   topic = DcForumTopic.find(@parent.params[:topic])
   replies = DcReply.where(doc_id: topic.id, active: true).order(created_at: 1)
-                   .page(@parent.params[:page]).per(10)
+                   .page(@parent.params[:page]).per(15)
   @parent.render partial: 'dc_forum/topic', formats: [:html], 
                  locals: { forum: forum, topic: topic, replies: replies, opts: @opts  }
 end

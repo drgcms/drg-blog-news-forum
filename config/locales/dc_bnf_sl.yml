@@ -35,6 +35,7 @@ sl:
     topics: Teme
     replies: Odgovorov
     last: Zadnji
+    last_change: Zadnja sprememba
 
   dc_blog:
     author: Avtor
