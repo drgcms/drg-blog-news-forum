@@ -11,8 +11,8 @@
     <b><%= reply.subject %></b><br>
     <%= t('dc_forum.replied_by') %>: <%= reply.created_by_name %>, 
     <%= dc_pretty_date(reply.created_at) %>&nbsp;&nbsp;<br>
-    <div class="reply-body <%= oddeven %>"><%= reply.body.html_safe %></div>
   </div>
+  <div class="reply-body <%= oddeven %>"><%= reply.body.html_safe %></div>
 <% end %>
 
 <div id="dc-reply-menu">
