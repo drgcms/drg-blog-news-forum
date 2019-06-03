@@ -36,6 +36,11 @@ def dc_new_record()
     replyto = DcReply.find(params[:reply_to])
     @record.subject = (replyto.subject.match('Re:') ? '' : 'Re: ') + replyto.subject
     @record.body = "<div class='dc-forum-quote'>[#{replyto.created_by_name}]#{replyto.body}</div><p><br></p>"
+  elsif params[:p_doc_id]
+    model = params[:p_doc_class].classify.constantize
+    doc = model.find(params[:p_doc_id])
+    @record.subject = "Re: #{doc.subject}"
+    
   end
   @record.created_by_name = session[:user_name] if session[:user_name]
 end
