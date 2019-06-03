@@ -15,12 +15,12 @@
       <%= link_to( t('dc_forum.new_reply'), { table: 'dc_reply', form_name: 'reply', 
                    controller: :cmsedit, action: 'new',
                    p_doc_id: topic.id, p_doc_class: topic.class.to_s }, 
-                   target: 'iframe_edit', class: 'dc-animate') %>
+                   target: 'iframe_edit', class: 'dc-animate', ref: 'nofollow') %>
     </div>
     <div class="dc-link">
       <%= link_to( t('dc_forum.new_topic'), 
           {controller: 'cmsedit', table: 'dc_forum_topic', form_name: 'dc_forum_topic', 
-          action: 'new', forum: forum._id}, target: 'iframe_edit', class: 'dc-animate') %>
+          action: 'new', forum: forum._id}, target: 'iframe_edit', class: 'dc-animate', ref: 'nofollow') %>
     </div>
     <div style="text-align: right; width: 100%;"><%= paginate replies %></div>    
   </div>

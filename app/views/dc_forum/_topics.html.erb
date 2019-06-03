@@ -8,7 +8,7 @@
     <div class="dc-link" style="white-space: nowrap;">
       <%= link_to( t('dc_forum.new_topic'), 
           {controller: 'cmsedit', table: 'dc_forum_topic', form_name: 'dc_forum_topic', 
-          action: 'new', forum: forum._id}, target: 'iframe_edit', class:  'dc-animate') %>
+          action: 'new', forum: forum._id}, target: 'iframe_edit', class:  'dc-animate', ref: 'nofollow') %>
     </div>
     <div style="text-align: right; width: 100%;"><%= paginate topics %></div>
   </div>
