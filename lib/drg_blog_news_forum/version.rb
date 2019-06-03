@@ -1,3 +1,3 @@
 module DrgBlogNewsForum
-  VERSION = "0.5.52.4"
+  VERSION = "0.5.52.5"
 end
