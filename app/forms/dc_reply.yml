@@ -39,4 +39,4 @@ form:
     50:
       name: body
       type: html_field
-      options: "height: 420, toolbar: 'basic', allowedContent: false" 
+      options: "height: 420, width: 800, toolbar: 'basic', allowedContent: false" 

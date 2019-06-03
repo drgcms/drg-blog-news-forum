@@ -4,7 +4,7 @@ title: Reply
 controls: reply
 
 form:
-  height: 750
+  height: 650
   labels_pos: top
   actions: 
     1: 
@@ -29,7 +29,7 @@ form:
     30:
       name: body
       type: html_field
-      options: "height: 420, toolbar: 'basic', allowedContent: false" 
+      options: "height: 420, width: 700, toolbar: 'basic', allowedContent: false" 
     40:
        name: _honey
        type: text_field

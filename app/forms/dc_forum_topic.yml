@@ -2,10 +2,16 @@ table: dc_forum_topic
 
 
 form:
-  height: 600
+  height: 625
   labels_pos: top
   actions: 
-    1: save
+    5: save
+    
+    1: 
+      type: script
+      caption: drgcms.back 
+      icon: arrow-left
+      js: parent.location.reload();    
 
   fields:
     10:
@@ -20,7 +26,7 @@ form:
     30:
       name: body
       type: html_field
-      options: "height: 420, toolbar: 'basic'" 
+      options: "height: 420, width: 700, toolbar: 'basic'" 
       
     100:
       name: dc_forum_id
