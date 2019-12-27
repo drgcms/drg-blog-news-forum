@@ -84,10 +84,10 @@ def last_news
 
   entries.inject('') do |result, element|
     result << @parent.link_to("/news/#{element.link}") do 
-      %Q[
+      %Q[<div>
     <span class="date">#{@parent.dc_pretty_date(element.created_at)} : </span>
-    <span class="title">#{element.subject}</span><br><br> 
-      ].html_safe
+    <span class="title">#{element.subject}</span>
+      </div>].html_safe
     end
   end
 end

@@ -33,6 +33,11 @@ include DcApplicationHelper
 def show(link)
   entry = DcBlog.find_by(link: link)
   return t('dc_blog.entry_not_found') if entry.nil?
+# SEO
+  @parent.page_title = entry.title.blank? ? entry.subject : entry.title
+  @parent.page.canonical_link = nil
+  @parent.dc_add_meta_tag(:name, 'description', entry.meta_description) unless entry.meta_description.blank?
+  @parent.dc_add_json_ld(entry.get_json_ld)
   
   replies = DcReply.where(doc_id: entry.id, active: true).order(created_at: 1)
   @parent.render partial: 'dc_blog/show', formats: [:html], 
@@ -42,10 +47,13 @@ end
 ########################################################################
 # List all blogs from single blogger
 ########################################################################
-def list(blogger)
-  documents = DcBlog.only(:created_by_name, :link, :subject, :created_at)
-                  .where(created_by_name: blogger, active: true).order_by(created_at: -1)
-                  .page(@parent.params[:page]).per(10)
+def list(path)
+  # get blogger id from document path
+  blogger_id = path.last.split('-').last  
+  documents  = DcBlog.only(:created_by, :link, :subject, :created_at)
+               .where(created_by: blogger_id, active: true).order_by(created_at: -1)
+               .page(@parent.params[:page]).per(10)
+  
   @parent.render partial: 'dc_blog/list', formats: [:html], locals: { documents: documents } 
 end
 
@@ -53,7 +61,8 @@ end
 # List all bloggers
 ########################################################################
 def list_bloggers
-  bloggers = DcBlog.all.distinct(:created_by_name)
+  bloggers = DcBlog.distinct(:created_by)
+  bloggers = DcUser.only(:id, :name).where(:_id.in => bloggers).to_a
   @parent.render partial: 'dc_blog/bloggers', formats: [:html], locals: { bloggers: bloggers } 
 end
 
@@ -65,16 +74,14 @@ def last_blogs
   entries = DcBlog.only(:created_by_name, :link, :subject, :created_at).where(active: true)
   entries = entries.and(created_by_name: @opts[:blogger]) if @opts[:blogger]
   entries = entries.order_by(created_at: -1).limit(limit).to_a
-
   entries.inject('') do |result, document|
     result << @parent.link_to("/blog/#{document.created_by_name}/#{document.link}") do 
-      %Q[
+      %Q[<div>
     <span class="date">#{@parent.dc_pretty_date(document.created_at)} : </span>
-    <span class="title">#{document.subject}</span><br><br> 
-      ].html_safe
+    <span class="title">#{document.subject}</span><br>
+      </div>].html_safe
     end
   end
-
 end
 
 
@@ -86,7 +93,7 @@ def default
   if @opts[:path].size == 1 or document_link == 'bloggers'
     list_bloggers
   elsif @opts[:path].size == 2 
-    list(document_link)
+    list(@opts[:path])
   else
     show(document_link)
   end

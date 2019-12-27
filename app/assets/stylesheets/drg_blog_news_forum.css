@@ -135,23 +135,32 @@ border-radius: 2px;
 }
 
 /******* dc_blog *******/
+
 #blogs .title {
   font-size: 1.4em;
     padding-bottom: 5px;
 }
-.blog-subject {
-font-size: 1.4em;
+
+#blogs h1 {
+  font-size: 2.2em;
+  font-weight: 600;
+}
+
+
+.blog-subject h1 {
+font-size: 2.2em;
 font-weight: bold;
 }
 .blog-date {
-font-size: 1em;  
+font-size: 1.2em;  
 color: #aaa;  
 margin-bottom: 20px;
 }
 .blog-body {
   font-size: 1.2em;
 }
-.blog-replies {
+.blog-replies h2 {
+  font-size: 2em;
 }
 .reply-top.even {
 padding:5px;
@@ -170,8 +179,8 @@ margin-bottom: 0em;
 margin-top: 10px;
 }
 .blog-entry a {
-font-size: 1.6em;
-font-weight: bold;
+font-size: 1.4em;
+font-weight: 600;
 }
 
 .social-sites {
@@ -184,4 +193,16 @@ padding-bottom: 5px;
 /**** news  ****/
 .news.one .author {
   font-size: 1.2em;
+  font-weight: 600;
 } 
+
+.news .body {
+  font-size: 1.2em;
+}
+.news .document {
+  font-size: 1.2em;
+}
+
+.news h2 {
+  font-size: 1.4em;
+}

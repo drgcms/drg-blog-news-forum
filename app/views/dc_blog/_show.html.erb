@@ -7,11 +7,11 @@
   <%= dc_link_for_edit(controller: 'cmsedit', table: 'dc_blog', title: 'dc_blog.edit_document', id: document.id ) %>
 <% end %>
 
-<div class="blog-subject"><h2><%= document.subject %></h2></div>
-<div class="blog-date"><h4><%= t('dc_blog.published') + ' ' + dc_pretty_date(document.created_at) %></h4></div>
+<div class="blog-subject"><h1><%= document.subject %></h1></div>
+<div class="blog-date"><%= t('dc_blog.published') + ' ' + dc_pretty_date(document.created_at) %></div>
 
 <div class="blog-body"><%= document.body.html_safe %></div>
-<div class="social-sites"><%=  social_sites %></div>
+<div class="social-sites"><%= social_sites %></div>
 
 <div class="blog-replies">
   <h2><%= t('dc_blog.comments') %></h2>
@@ -23,7 +23,7 @@
 </div>
 
 <div class="column small-12 medium-3 more-blogs">
-  <h5>More blogs by<br><%= document.created_by_name %></h5>
+  <h2>More blogs by<br><%= document.created_by_name %></h2>
   <%= dc_render(:dc_blog, method: 'last_blogs', limit: 10, blogger: document.created_by_name) %>
 </div>
   

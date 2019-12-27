@@ -68,6 +68,7 @@ sl:
    
       dc_blog:
         tabletitle: Blogi
+        1base: Osnovno
 
         subject: Zadeva
         body: Vsebina
@@ -80,6 +81,7 @@ sl:
 
       dc_news:
         tabletitle: Novice
+        1base: Osnovno
 
         subject: Zadeva
         body: Vsebina

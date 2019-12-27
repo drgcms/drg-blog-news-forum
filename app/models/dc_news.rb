@@ -52,6 +52,9 @@ class DcNews
   field :valid_from,  type: Date
   field :valid_to,    type: Date
   field :categories,  type: Array
+  
+  # SEO
+  include DcSeoConcern
 
   field :created_by,  type: BSON::ObjectId
   field :created_by_name, type: String
@@ -67,8 +70,8 @@ class DcNews
 # Update link when left blank.
 ########################################################################
 def do_before_save
-  if self.link.size < 5
-    self.link = UnicodeUtils.downcase(self.subject).gsub(' ','-') + Time.now.strftime('-%Y-%m-%d')
+  if self.link.blank?
+    self.link = UnicodeUtils.downcase(DcPage.clear_link(self.subject)) + Time.now.strftime('-%Y-%m-%d')
   end
   if self.created_by_name.nil?
     self.created_by_name = DcUser.find(self.created_by).name
