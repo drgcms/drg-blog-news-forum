@@ -10,7 +10,7 @@ title  = opts.dig(:settings, opts[:element], 'title') || t('dc_news.news')
 
 <div class="<%= clas %>">
   <%= news_settings(opts) %>
-  <% unless title == '-'  %><h2><%= title %></h2><% end %>
+  <% unless title == '-'  %><h1><%= title %></h1><% end %>
   <%= if opts[:edit_mode] > 1 
     dc_link_for_create(controller: 'cmsedit', table: 'dc_news', title: 'dc_blog.new_entry' )
   end %>
@@ -18,7 +18,9 @@ title  = opts.dig(:settings, opts[:element], 'title') || t('dc_news.news')
   <% for document in documents %>
     <div class="document">
       <%= dc_pretty_date(document.created_at) %>
-      <h4><%= link_to( document.subject, { path: "#{link}/#{document.link}" } )%></h4>          
+      <%= link_to( { path: "#{link}/#{document.link}" } ) do %>
+        <h2><%= document.subject %></h2>
+      <% end %>
     </div>
   <% end %>
 </div>

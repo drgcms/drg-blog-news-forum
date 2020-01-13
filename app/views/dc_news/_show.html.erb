@@ -8,9 +8,9 @@ clas = (opts.dig(:settings, opts[:element], 'clas') || 'news') + ' one'
   <%= dc_link_for_create( table: 'dc_news', title: 'dc_news.new_document' ) %>
 <% end %>
 
-<h2><%= document.subject %></h2>
+<h1><%= document.subject %></h1>
 <div class="author">
-  <%= "#{t('dc_blog.author')} #{document.created_by_name}, #{dc_pretty_date(document.created_at)}" %>
+  <%= "#{t('dc_blog.author')}: #{document.created_by_name}, #{dc_pretty_date(document.created_at)}" %>
 </div><br>
 
 <div class="body"><%= document.body.html_safe %></div>
