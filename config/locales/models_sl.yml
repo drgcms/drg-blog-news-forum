@@ -52,6 +52,7 @@ sl:
         body: Vsebina
         created_at: Ustvarjeno
         dc_user_id: Ustvaril
+        created_by_name: Ustvaril
         dc_forum_id: Forum
         active: Aktiven  
         replies: Odgovorov
