@@ -1,5 +1,6 @@
 
-<%= pp opts; "<div id=\"#{opts[:div_id]}\">".html_safe if opts[:div_id] %>
+<%= "<div id=\"#{opts[:div_id]}\">".html_safe if opts[:div_id] %>
+
 <%= if session[:edit_mode] > 1 
   dc_link_for_create(controller: 'cmsedit', table: 'dc_forum', title: 'dc_forum.add_new_forum' )
     end %>
@@ -40,4 +41,5 @@
     </div>
   <% end %>
 </div>
+
 <%= "</div>".html_safe if opts[:div_id] %>

@@ -22,15 +22,15 @@
     <%= link_to(topic.subject, { path: params[:path], forum: params[:forum], topic: topic._id } ) %><br>
       
       <b><%= t('dc_forum.created_by') %>:</b> <%= topic.created_by_name %> 
-      <%= dc_pretty_date(topic.created_at) %> &nbsp;|&nbsp;
+      &nbsp;|&nbsp; <%= dc_pretty_date(topic.created_at) %> &nbsp;|&nbsp;
 
       <b><%= t('dc_forum.replies') %>:</b>
       <%= topic.replies %>
       
       <% if topic.updated_at != topic.created_at %>
-         &nbsp;|&nbsp; <b><%= t('dc_forum.last') %>:</b>
+        &nbsp;|&nbsp; <b><%= t('dc_forum.last') %>:</b>
         <%= topic.updated_by_name %>
-        <%= dc_pretty_date(topic.updated_at) %>
+        &nbsp;|&nbsp; <%= dc_pretty_date(topic.updated_at) %>
       <% end %>
     </div>
   <% end %>

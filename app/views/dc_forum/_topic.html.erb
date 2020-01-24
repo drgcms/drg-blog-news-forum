@@ -28,7 +28,7 @@
   <h2><%= forum.name %></h2>
 
   <div class="topic-top"><h3><%= topic.subject %></h3>
-    <%= t('dc_forum.created_by') %>: <%= topic.created_by_name %> <%= dc_pretty_date(topic.created_at) %>
+    <%= t('dc_forum.created_by') %>: <%= dc_pretty_date(topic.created_at) %>, <%= topic.created_by_name %> 
   </div>
   <div class="topic-body"><%= topic.body.html_safe %></div>
   
