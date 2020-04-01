@@ -49,10 +49,17 @@ end
 ########################################################################
 def list(path)
   # get blogger id from document path
-  blogger_id = path.last.split('-').last  
-  documents  = DcBlog.only(:created_by, :link, :subject, :created_at)
-               .where(created_by: blogger_id, active: true).order_by(created_at: -1)
-               .page(@parent.params[:page]).per(10)
+  blogger_id = path.last.split('-').last
+  documents  = if BSON::ObjectId.legal?(blogger_id)
+    DcBlog.only(:created_by, :link, :subject, :created_at)
+          .where(created_by: blogger_id, active: true).order_by(created_at: -1)
+          .page(@parent.params[:page]).per(10)
+  else
+    blogger_name = path.last
+    DcBlog.only(:created_by, :link, :subject, :created_at)
+          .where(created_by_name: blogger_name, active: true).order_by(created_at: -1)
+          .page(@parent.params[:page]).per(10)
+  end
   
   @parent.render partial: 'dc_blog/list', formats: [:html], locals: { documents: documents } 
 end

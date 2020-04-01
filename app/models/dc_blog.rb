@@ -48,6 +48,7 @@ included do
   field :body,        type: String,  default: ''
   field :active,      type: Boolean, default: true
   field :link,        type: String
+  field :replies,     type: Integer, default: 0  
 
   field :created_by,  type: BSON::ObjectId
   field :created_by_name, type: String
@@ -71,9 +72,9 @@ def do_before_save
   if self.link.size < 5
     self.link = UnicodeUtils.downcase(DcPage.clear_link(self.subject)) + Time.now.strftime('-%Y-%m-%d')
   end
-  if self.created_by_name.nil?
-    self.created_by_name = DcUser.find(self.created_by).name
-  end
+  #if self.created_by_name.nil?
+    self.created_by_name = DcUser.find(self.created_by).name.downcase.gsub(' ','-')
+  #end
 end
   
 ########################################################################

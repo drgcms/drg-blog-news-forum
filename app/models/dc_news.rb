@@ -48,6 +48,7 @@ class DcNews
   field :body,        type: String,  default: ''
   field :active,      type: Boolean, default: true
   field :link,        type: String
+  field :replies,     type: Integer, default: 0  
   
   field :valid_from,  type: Date
   field :valid_to,    type: Date

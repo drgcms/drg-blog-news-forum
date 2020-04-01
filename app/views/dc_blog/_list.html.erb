@@ -6,7 +6,7 @@
   <div class="entry">
     <div class="date"><%= dc_pretty_date(document.created_at) %></div>
     <div class="title">
-      <%= link_to( path: "#{(@options[:path] << document.link).join('/')}" ) do %>
+      <%= link_to( path: "#{(@options[:path] + [document.link]).join('/')}" ) do %>
         <h2><%= document.subject %> </h2>
       <% end %>
     </div>

@@ -9,6 +9,6 @@
 
 <% for blogger in bloggers %>
   <div class="blog-entry">
-     <%= link_to( blogger.name, { path: "blog/#{blogger.name.downcase.gsub(' ','-')}-#{blogger.id}" } )%>
+     <%= link_to( blogger.name, { path: "blog/#{blogger.name.downcase.gsub(' ','-')}" } )%>
   </div>
 <% end %>
