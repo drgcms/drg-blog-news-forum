@@ -25,7 +25,7 @@
 ######################################################################
 # DrgcmsControls for DcForum.DcReply form
 ######################################################################
-module DrgcmsControls::DcForumTopicDcReplyControl
+module DcForumTopicDcReplyControl
 
 ######################################################################
 # Called when new empty record is created
