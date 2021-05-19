@@ -46,7 +46,7 @@ included do
 
   field :subject,     type: String,  default: ''
   field :body,        type: String,  default: ''
-  field :active,      type: Boolean, default: true
+  field :active,      type: Mongoid::Boolean, default: true
   field :link,        type: String
   field :replies,     type: Integer, default: 0  
 
