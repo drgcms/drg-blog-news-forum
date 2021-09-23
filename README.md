@@ -30,7 +30,7 @@ Please see the DRG CMS website for up-to-date documentation:
 License
 -------
 
-Copyright (c) 2014-2018 Damjan Rems
+Copyright (c) 2014-2021 Damjan Rems
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
