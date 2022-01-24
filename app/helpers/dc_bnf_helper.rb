@@ -22,7 +22,7 @@
 #++
 
 module DcBnfHelper
-#include DcApplicationHelper  
+include CmsCommonHelper
 
 ########################################################################
 # 

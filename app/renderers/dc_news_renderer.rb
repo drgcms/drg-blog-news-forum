@@ -26,6 +26,7 @@
 ########################################################################
 class DcNewsRenderer < DcRenderer
 include DcApplicationHelper
+include CmsCommonHelper
 
 ########################################################################
 # Collects documents for list

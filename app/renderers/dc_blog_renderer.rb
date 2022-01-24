@@ -26,6 +26,7 @@
 ########################################################################
 class DcBlogRenderer < DcRenderer
 include DcApplicationHelper
+include CmsCommonHelper
 
 ########################################################################
 # Show one blog entry

@@ -26,7 +26,7 @@
 ########################################################################
 class DcForumRenderer < DcRenderer
 include DcApplicationHelper
-
+include CmsCommonHelper
   
 ########################################################################
 # 
