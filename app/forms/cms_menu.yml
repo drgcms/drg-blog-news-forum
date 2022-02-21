@@ -23,26 +23,26 @@
 menu:
   80_dc_forum_menu:
     caption: dc_forum.menu_caption
-    icon: cubes lg
+    icon: forum
     items:
       10: 
         caption: helpers.label.dc_blog.tabletitle
         controller: cmsedit
-        icon: comment-o lg
+        icon: comment-o
         table: dc_blog
       20: 
         caption: helpers.label.dc_news.tabletitle
         controller: cmsedit
-        icon: info lg
+        icon: info-o
         table: dc_news
       30: 
         caption: helpers.label.dc_forum.tabletitle
         controller: cmsedit
-        icon: server lg
+        icon: forum-o
         table: dc_forum
       40: 
         caption: helpers.label.dc_reply.tabletitle
         controller: cmsedit
-        icon: commenting-o lg
+        icon: comment-o
         table: dc_reply
                        
