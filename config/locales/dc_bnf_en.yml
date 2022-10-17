@@ -61,6 +61,8 @@ en:
     categories_help: Define categories shown by news agregator
     number: Articles number
     number_help: Number of articles shown by news agregator
+    per_page: Articels per page
+    per_page_help: Number of articles per page
     paging: Add paging
     paging_help: Add paging links for the agregator
     small: Small

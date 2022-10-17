@@ -40,14 +40,14 @@ def collect_documents()
     DcNews.where(active: true)
   end
   query = query.only(:id, :created_at, :subject, :created_by_name, :link)
-# paging 
+  # paging
   if @opts.dig(:settings, @opts[:element], 'paging') == '1'
-    per_page = @opts.dig(:settings, @opts[:element], 'docs_per_page') || 15
+    per_page = @opts.dig(:settings, @opts[:element], 'per_page') || 15
     query.order_by(created_at: -1).page(@parent.params[:page]).per(per_page)
   else
     query = query.and({"$or" => [{valid_from: nil}, {:valid_from.gt => Time.now.beginning_of_day}]})
 
-    limit = @opts.dig(:settings, @opts[:element], 'docs_per_view') || 5
+    limit = @opts.dig(:settings, @opts[:element], 'number') || 5
     query.order_by(created_at: -1).limit(limit)
   end
 end
@@ -70,7 +70,7 @@ end
 ########################################################################
 def list
   partial   = @opts.dig(:settings, @opts[:element], 'view') || 'dc_news/list'
-  documents = collect_documents.to_a
+  documents = collect_documents
   @parent.render(partial: partial, formats: [:html], locals: { documents: documents, opts: @opts } )
 end
 

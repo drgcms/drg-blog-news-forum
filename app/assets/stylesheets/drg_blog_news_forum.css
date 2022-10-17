@@ -206,3 +206,12 @@ padding-bottom: 5px;
 .news h2 {
   font-size: 1.4em;
 }
+
+.news .paginate {
+  text-align: center;
+  padding: 1rem 0;
+}
+
+.news .pagination {
+  float: none;
+}

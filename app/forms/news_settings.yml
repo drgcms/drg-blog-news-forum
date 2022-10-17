@@ -18,20 +18,29 @@ form:
       help: dc_news.categories_help
       html:
         include_blank: true        
-      
+
     20:
       name: number
       type: text_field
       size: 3
       text: dc_news.number
       help: dc_news.number_help
-      
+
     30:
       name: paging
       type: check_box
       text: dc_news.paging
       help: dc_news.paging_help
+      group: 2
       
+    35:
+      name: per_page
+      type: text_field
+      size: 3
+      text: dc_news.per_page
+      help: dc_news.per_page_help
+      line: bottom
+
     40:
       name: small
       type: text_field

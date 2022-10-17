@@ -15,7 +15,7 @@ title  = opts.dig(:settings, opts[:element], 'title') || t('dc_news.news')
     dc_link_for_create(controller: 'cmsedit', table: 'dc_news', title: 'dc_blog.new_entry' )
   end %>
   
-  <% for document in documents %>
+  <% documents.each do |document| %>
     <div class="document">
       <%= dc_pretty_date(document.created_at) %>
       <%= link_to( { path: "#{link}/#{document.link}" } ) do %>
@@ -23,4 +23,5 @@ title  = opts.dig(:settings, opts[:element], 'title') || t('dc_news.news')
       <% end %>
     </div>
   <% end %>
+  <% if paging %><div class="paginate"><%= paginate documents %></div><% end %>
 </div>
