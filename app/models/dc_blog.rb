@@ -69,12 +69,8 @@ included do
 # Update link if if field is left blank.
 ########################################################################
 def do_before_save
-  if self.link.size < 5
-    self.link = UnicodeUtils.downcase(DcPage.clear_link(self.subject)) + Time.now.strftime('-%Y-%m-%d')
-  end
-  #if self.created_by_name.nil?
-    self.created_by_name = DcUser.find(self.created_by).name.downcase.gsub(' ','-')
-  #end
+  self.link = DcPage.clear_link(subject.clone).downcase + created_at.strftime('-%Y-%m-%d')
+  self.created_by_name = DcUser.find(created_by).name.downcase.gsub(' ','-')
 end
   
 ########################################################################
@@ -83,7 +79,7 @@ end
 def blogers
   blogers_role = DcRole.only(:id).find_by(sytem_name: 'bloger')
   return [] unless blogers_role
-#
+
   DcUser.where('dc_user_roles.dc_policy_role_id' => blogers_role.id).order_by(name: 1)
 end
   
